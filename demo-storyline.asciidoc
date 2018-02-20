@@ -1,0 +1,244 @@
+= Demo storyline
+
+== Setup Project
+
+1. New Project
+2. Install Kotlin Plugin
+3. Configure Kotlin in Project
+4. Create `/app/src/main/kotlin`
+
+== Hallo Welt
+
+- main <tab>
+- println ("Hello World!")
+
+[code]
+----
+fun main(args: Array<String>) {
+    println("Hallo Welt!")
+}
+----
+- Ctrl-Shift-F10
+
+****
+- Top-Level functions
+- Prägnanz: Kein Semikolon
+****
+
+<<<<
+
+== Hallo Kotlin
+
+[code]
+----
+import java.util.*
+
+fun main(args: Array<String>) {
+    val name = if (args.size > 0) args[0] else "Publikum"
+    val zuschauer = Gast(name, title = Title.wertes)
+
+    println(zuschauer)
+    println("Hallo ${zuschauer.title} ${zuschauer.name}")
+}
+
+data class Gast(val name: String, var zeit: Date = Date(), val title: Title?)
+enum class Title { Herr, Frau, wertes }
+----
+
+
+****
+- Prägnanz: Kein Semikolon
+- Kein`new`,
+- `if` ist ein Ausdruck
+- Properties
+- `val` und `var`
+- ggf. `Nullify?`
+****
+
+== Hello Null
+
+[code]
+----
+class HelloNull {
+    var nullable: String? = null
+
+    fun doHello() {
+
+    }
+}
+
+fun main(args: Array<String>) {
+    HelloNull().doHello()
+}
+----
+
+<<<<
+.Ausgebaut:
+
+[code]
+----
+class HelloNull(val nullable: String?) {
+
+    fun doHello() {
+//        println(toUpper1())
+        println(toUpper2())
+        println(toUpper3())
+//        println(toUpper4())
+        println(toUpper5())
+        println(javaString())
+    }
+
+    fun toUpper1(): String = nullable!!.toUpperCase()
+    fun toUpper2(): String? = nullable?.toUpperCase()
+    fun toUpper3(): String = nullable?.toUpperCase() ?: "NULL"
+    fun toUpper4(): String = nullable?.toUpperCase() ?: throw IllegalStateException("Nah!")
+    fun toUpper5(): String? {
+        if (nullable != null) {
+            return nullable.toUpperCase()
+        } else {
+            return "NULL5"
+        }
+    }
+    fun javaString(): String = System.getenv("PWD")
+
+}
+
+fun main(args: Array<String>) {
+    HelloNull("Foo").doHello()
+    HelloNull(null).doHello()
+}
+----
+
+<<<<
+== Nullable in Android
+
+1. Convert Activity to Kotlin
+2. TextView ID zuweisen
+3. Ressourcenstring einfügen
+4. Verdrahten
+
+.`activity_main.xml`
+[code]
+----
+…
+    <TextView
+        android:id="@+id/hellolabel"
+…
+----
+
+.`strings.xml`
+[code]
+----
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="meinGruss">Hallo liebe Kotliner!</string>
+</resources>
+----
+
+.`MainActivity.kt`
+[code]
+----
+package de.exxcellent.myapplication
+
+import android.app.Activity
+import android.os.Bundle
+import android.widget.TextView
+import kotlin.properties.Delegates
+
+class MainActivity : Activity() {
+
+    //var myString: String by Delegates.notNull()
+    lateinit var myString: String
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        myString = getString(R.string.meinGruss)
+        val helloView = findViewById(R.id.hellolabel) as TextView
+        helloView.setText(myString)
+    }
+}
+----
+
+<<<<
+== Kotlin Android Extension
+
+.`build.gradle`
+[code]
+----
+apply plugin: 'kotlin-android-extensions'
+----
+
+.`MainActivity.kt`
+[code]
+----
+import kotlinx.android.synthetic.main.activity_main.*
+…
+ hellolabel.setText(myString)
+----
+
+== Extension Methods
+
+.`android-extension.kt`
+[code]
+----
+import android.app.Activity
+import android.widget.Toast
+
+fun Activity.toast(message: String, duration: Int = Toast.LENGTH_SHORT) {
+    Toast.makeText(applicationContext, message, duration).show()
+}
+----
+
+.`MainActivity.kt`
+[code]
+----
+    hellolabel.setOnClickListener { toast("Hi") }
+----
+
+****
+Zeigt:
+
+- Lambda / SAM
+- Extension Methods
+****
+
+<<<<
+=== Anko DSL
+
+.`build.gradle`
+[code]
+----
+    compile 'org.jetbrains.anko:anko-sdk19:0.9'
+----
+
+.`MainActivity.kt`
+[code]
+----
+package de.exxcellent.myapplication
+
+import android.app.Activity
+import android.os.Bundle
+import org.jetbrains.anko.*
+import kotlin.properties.Delegates
+
+class MainActivity : Activity() {
+
+    lateinit var myString: String
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        myString = getString(R.string.meinGruss)
+
+        verticalLayout {
+            padding = dip(16)
+            textView {
+                text = myString
+                onClick { toast("Hi")  }
+            }
+        }
+    }
+}
+----

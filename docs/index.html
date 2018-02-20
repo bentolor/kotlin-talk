@@ -1,0 +1,1584 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Java++: Effiziente & sichere JVM-Entwicklung mit Kotlin</title>
+    <meta name="description"
+          content="Kotlin ist eine innovative, freie und statisch typisierte Programmiersprache die in JVM Bytecode, Javascript und native Binaries compiliert. Auf ihrer Heimatplattform, der JVM, verfolgt Kotlin das Ziel vollständige Java-kompatibel zu bleiben und gleichzeitig sicherer und präziser zu sein. Die ausdrucksstarke und dennoch gut lesbaren Syntax mit funktionalen Features verspricht weniger Boilerplate Code bei zugleich fehlerärmeren Entwicklung. Ausgerichtet auf den Unternehmenseinsatz hat für Kotlin neben der exzellenten Interoperabilität mit Java stets auch die gute Verständlichkeit, schnelle Compilierzeiten und eine hervorragende Tooling-Unterstützungen hohe Priorität.
+
+JetBrains war von Anfang an stets bemüht Kotlin als ein offenes, unabhängiges und dauerhaft überlebensfähiges Projekt zu etablieren. Spätestens seitdem Kotlin im Mai 2017 auf der Google I/O offiziell in die Android Plattform eingezogen ist, dürfte dies nun endgültig als gesichert gelten und es ist an der Zeit einen intensiven Blick auf diese vollwertige Java Alternative zu werfen.
+
+In dieser Session erleben wir live, wie es sich anfühlt der NullpointerException auf Nimmerwiedersehen zu sagen und sie für Entwicklung gegen funktionale Features, Dataclasses und Extension-Methods einzutauschen. Codebeispiele helfen beim Kennenlernen der Sprache und vermitteln lebendige Eindrücke. Im Fortgeschrittenen Teil der Session blicken wir z.B. auf die Higher-order Functions und der Möglichkeit zur Gestaltung typsicherer DSLs mittels Empfängerobjekten und welche Verbindungen sich hier mit Gradle ergeben. Ein Aus- und Rückblick auf die letzten Neuerungen wie z.B. der Möglichkeit zu nativen iOS Anwendungen und Multiplattform-Projekten rundet das Ganze ab.">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/white.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/solarized-light.css">
+
+    <!-- Custom, overriding CSS -->
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+<body>
+<img src="img/eXXcellent%20logo-transparent.png" id="exxcellent-logo"
+     alt="eXXcellent solutions GmbH Logo"
+/>
+
+<div class="reveal">
+    <div class="slides">
+
+        <!--
+          === Title ===============================================================================
+        -->
+
+        <section data-background-color="#fff">
+            <img data-src="img/eXXcellent%20logo-transparent.png"
+                 style="width: 320px; position: absolute; top: 0; left: 0;"
+                 class="plain" alt="eXXcellent solutions GmbH Logo"
+            />
+
+            <div style="text-align: right;">
+                <h2 style="margin: 360px 0px 0 0; font-size: 1.9em; text-transform: none">
+                    <span class="emphasize">Java++</span>
+                    : Effiziente & sichere JVM-Entwicklung
+                      mit <img data-src="img/kotlin_logos/logo_Kotlin.svg"
+                         style="width: 280px; "
+                         class="plain" alt="Kotlin"/>
+                </h2>
+            </div>
+
+            <div id="version">
+                2018-02-22
+            </div>
+
+            <div class="profile" style="position: absolute; top: 0; left: 900px;">
+                <div class="profile-sidebar">
+                    <div class="profile-userpic">
+                        <img data-src="img/BenjaminSchmid.jpg" class="img-responsive" alt="">
+                    </div>
+                    <div class="profile-usertitle">
+                        <div class="profile-usertitle-name">
+                            Benjamin Schmid
+                        </div>
+                        <div class="profile-usertitle-job">
+                            Technology Advisor
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-content">
+                    <a href="https://twitter.com/bentolor">@bentolor</a>
+                </div>
+            </div>
+
+            <!--<div id="rightsection">-->
+                <!--<code>?</code> for help-->
+            <!--</div>-->
+
+            <div id="licence">
+                <!--suppress HtmlUnknownAttribute -->
+                <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/InteractiveResource"
+                      property="dct:title" rel="dct:type">
+                    Java++: Effiziente & sichere JVM-Entwicklung mit Kotlin
+                </span>
+                by
+                <a xmlns:cc="http://creativecommons.org/ns#" href="https://twitter.com/bentolor"
+                   property="cc:attributionName" rel="cc:attributionURL">
+                    Benjamin Schmid
+                </a>
+                is licensed under a
+                <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                    Creative Commons License (BY-NC-SA/4.0)
+                </a>.
+                <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                    <img alt="Creative Commons Lizenzvertrag"
+                         src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png"/>
+                </a>
+
+            </div>
+        </section>
+
+
+        <!--
+          === Motivation ============================================================================
+        -->
+        <section class="">
+            <h3>Warum voranschreiten <br>in der Android-Entwicklung?</h3>
+
+            <div class="abs handwriting right fragment"
+                 style="transform: rotate(-2deg); left: 160px; top: 180px; font-size: 130%; line-height: 0.8em">
+                    Android = <strong>Java 6</strong> <span class="decent">(teilweise)</span>
+                    <br><span class="decent x-small">keine Streams, Lambdas, try-with…– aber: Retrolambda, RxJava</span>
+            </div>
+            <div class="abs handwriting right fragment"
+                 style="transform: rotate(+2deg); left: 260px; top: 340px; font-size: 130%;">
+                    Android API – <strong>Interitance Party, Nullwerte <br>Performance first</strong>
+            </div>
+            <div class="abs handwriting right fragment"
+                 style="transform: rotate(0deg); left: 200px; top: 500px; font-size: 130%; line-height: 0.6em">
+                    Java – <strong>längliche Idiome &amp; ungenutzte Chancen</strong>
+                    <br> <span class="decent x-small">(für Kurzschreibweisen)</span>
+                    <br>
+                    <br><strong>Kompromisse bei der Sicherheit</strong>
+                    <br> <span class="decent x-small">(Raw Types / Arrays, Nullwerte)</span>
+            </div>
+        </section>
+
+
+
+        <!--
+          === Overview ============================================================================
+        -->
+        <section>
+            <section data-background="img/kotlin-island-map.png" data-transition="fade-out">
+                <div data-markdown class="abs">
+                    ## Was ist Kotlin?
+                </div>
+                <div class="fragment abs" style="right: 0; top: 620px; text-align: right">
+                    <p class="large"><b>Russische Insel</b></p>
+                    <p class="decent x-small">im finnischen Golf, 32km vor Petersburg</p>
+                </div>
+            </section>
+
+
+            <section data-background="img/kotlin_logos/icon_Kotlin.svg" data-background-color="#fff" class="center">
+                <div style="width: 100%; text-align: right;">
+                    <p>statisch typisierte<br/>
+                        <b><span class="x-large">Allzweck-Sprache</span></b><br/>
+                        für JVM und Browser</p>
+                </div>
+            </section>
+
+
+            <section data-background="img/kotlin_logos/icon_Kotlin.svg" data-background-color="#fff" class="center">
+                <div data-markdown class="right" style="font-size: .8em">
+                    ## Prägnanz
+
+                    ## Sicherheit
+
+                    ## Lesbarkeit
+
+                    ## Interoperabilität
+
+                    ## Tooling
+                </div>
+            </section>
+
+
+            <section data-background="img/kotlin_logos/icon_Kotlin.svg" data-background-color="#fff" class="center">
+                <div class="right">
+                    <h2 class="large">Datenblatt</h2>
+
+                    <p>Freie Software</p>
+                    <p class="decent subline x-small">APL 2.0 – IDE, compiler, libs, build tools</p>
+
+                    <p>backed by JetBrains</p>
+                    <p class="decent subline x-small">20 Vollzeit & Community<br/>
+                        „dogfooding“: 0,5 Mio. LOC</p>
+
+                    <p>Stabil</p>
+                    <p class="decent subline x-small">Start: ~2010, v1.0 Feb. '16<br/>Long-term backward compatibility</p>
+
+                    <p>Integrationen</p>
+                    <p class="decent subline x-small">IntelliJ, Eclipse<br> Maven, Ant, Gradle</p>
+                </div>
+            </section>
+
+        </section>
+
+        <!--
+          === Ausdrucksstärke & Lesbarkeit ========================================================
+        -->
+        <section>
+
+            <section class="center">
+                <h1>Prägnanz &amp; Lesbarkeit</h1>
+                <h2 class="handwriting"></h2>
+
+                <div class="abs handwriting"
+                     style="transform: rotate(-7deg); left: 600px; top: 230px; font-size: 200%">
+                        Schneller an's Ziel!
+                </div>
+            </section>
+
+
+            <section>
+                <h2>Prägnanz vs. Lesbarkeit</h2>
+                <pre style="width: 80%; margin: 40px 0 0 -40px"><code style="font-size: 1.2em;">import java.util.*
+
+fun main(args: Array&lt;String&gt;) {
+    val name = if (args.size > 0) args[0] else "Publikum"
+    val zuschauer = Gast(name, title = Title.wertes)
+
+    println(zuschauer)
+    println("Hallo ${zuschauer.title} ${zuschauer.name}")
+}
+
+data class Gast(val name: String,
+                var zeit: Date = Date(),
+                val title: Title?)
+enum class Title { Herr, Frau, wertes }                </code></pre>
+                <div class="abs emphasize" style="top: 126px; left: 964px; width: 30%">
+                    <p style="text-align: left; line-height: 1em; font-size: 82%">
+                        <span class="fragment">&leftarrow; Optional semicolons<br></span>
+                        <br>
+                        <span class="fragment">&leftarrow; Top-level functions<br></span>
+                        <!--&leftarrow; <code>if</code> als Ausdruck<br>--><br/>
+                        <span class="fragment">&leftarrow; Kein <code>new</code>,
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;  named Params
+                        <br><!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kein <code>new</code>--></span>
+                        <br>
+                        <span class="fragment">&leftarrow; String interpolation<br></span>
+                        <br>
+                        <br>
+                        <!--<span class="fragment">&leftarrow; Data classes--> <br></span>
+                        <span class="fragment">&leftarrow; Default values <br></span>
+                        <span class="fragment">&leftarrow; <code>val</code> ≙ <code>public final</code></span>
+                    </p>
+                </div>
+            </section>
+<!--
+
+            <section class="">
+                <h2>Prägnanz – Sprachdesign</h2>
+
+                <p data-markdown>
+                    * kein `new`
+                    * `;` optional
+                    * Prägnante Schlüsselwörter (`fun`, `Int`, `val`, …)
+                    * `public` ist Standard
+                    * Kurzschreibweisen
+                    * Mehr &amp; Kurze Ausdrücke (`if`, `?:`, `?.`, …)
+                </p>
+            </section>-->
+
+
+            <section class="">
+                <h2>Type inference</h2>
+
+                <div >
+                    <div class="twocol" style="width: 54%" data-markdown>
+                        ```kotlin
+                        fun noTypeInfer(vals: List&lt;Int&gt;): Unit {
+                          val distinct: Set&lt;Int&gt; = vals.toSet()
+                          val first: Int = vals[0]
+                          val negs: List&lt;Int&gt; = vals.filter(
+                            fun(n: Int): Boolean {
+                                return n < 0
+                            }
+                          )
+                        }
+                        ```
+                    </div>
+                    <div style="position: absolute; left: 52%; top: 230px; font-size: 240%; color: #999">
+                        &rightarrow;
+                    </div>
+                    <div class="twocol" style="width: 42%" data-markdown>
+                        ```kotlin
+                        fun typeInfer(vals: List&lt;Int&gt;){
+                          val distinct = vals.toSet()
+                          val first = vals[0]
+                          val negs = vals.filter(
+                             fun(n) = n < 0
+
+
+                          )
+                        }
+                        ```
+                    </div>
+
+                    <div style="clear: left"/>
+                </div>
+
+                <p><strong>Typangaben</strong> üblicherweise <strong>nur an Schnittstellen</strong> erforderlich</p>
+            </section>
+
+
+            <section>
+                <h2 class="bgap">Data Classes</h2>
+
+                <!-- @formatter:off -->
+                <div data-markdown class="twocol" style="padding:0 0 0 96px; width: 500px">
+                    ```kotlin
+                    data class Gast(
+                        val name: String,
+                        var zeit: Date = Date(),
+                        val title: Title?
+                    )
+                    ```
+                </div>
+                <!-- @formatter:on -->
+                <h3 class="tgapxl">Werte-Container</h3>
+                <div data-markdown class="container decent small" style="padding-top: 1px;">
+                    - Um Methoden erweiterbar
+                    - Vererbung ab Kotlin 1.1
+                </div>
+                <div data-markdown class="tgapxl decent" style="clear: left;">
+                    ###### Kotlin übernimmt
+                </div>
+                <div class="container decent small">
+                    <div data-markdown style="float: left">
+                        - Getter &amp; Setter
+                        - `equals()`
+                    </div>
+                    <div data-markdown style="float: left">
+                        - `hashCode()`
+                        - `toString()`
+                    </div>
+                    <div data-markdown style="float: left">
+                        - `copy()` für Varianten
+                        - `componentN()` für Destructuring
+                    </div>
+                </div>
+            </section>
+
+
+            <section>
+                <h3>... <em>exakt</em> dasselbe mit Java</h3>
+
+                <div class="threecol">
+                    <pre class="xx-small"><code>public final class Gast {
+  @NotNull
+  private final String name;
+  @NotNull
+  private Date zeit;
+  @Nullable
+  private final Title title;
+
+  @NotNull
+  public final String getName() {
+    return this.name;
+  }
+
+  @NotNull
+  public final Date getZeit() {
+    return this.zeit;
+  }
+
+  public final void setZeit(@NotNull Date date) {
+    checkParameterIsNotNull(date, "&lt;set-?&gt;");
+    this.zeit = date;
+  }
+
+  @Nullable
+  public final Title getTitle() {
+    return this.title;
+  }
+
+  public Gast(@NotNull String name,
+              @NotNull Date zeit,
+              @Nullable Title title) {
+    checkParameterIsNotNull(name, "name");
+    checkParameterIsNotNull(zeit, "zeit");
+    this.name = name;
+    this.zeit = zeit;
+    this.title = title;
+  }></code></pre>
+                </div>
+                <div class="threecol">
+                    <pre class="xx-small"><code>  public Gast(String string, Date date,
+              Title title, int n) {
+    if ((n &amp; 2) != 0) {
+      date = new Date();
+    }
+    this(string, date, title);
+  }
+
+  @NotNull
+  public final String component1() {
+    return this.name;
+  }
+
+  @NotNull
+  public final Date component2() {
+    return this.zeit;
+  }
+
+  @Nullable
+  public final Title component3() {
+    return this.title;
+  }
+
+  @NotNull
+  public final Gast copy(@NotNull String name,
+                         @NotNull Date zeit,
+                         @Nullable Title title) {
+    checkParameterIsNotNull(name, "name");
+    checkParameterIsNotNull(zeit, "zeit");
+    return new Gast(name, zeit, title);
+  }
+
+  public String toString() {
+    return "Gast(name=" + this.name +
+           ", zeit=" + this.zeit +
+           ", title=" + this.title + ")";
+  }
+</code></pre>
+                </div>
+                <div class="threecol">
+                    <pre class="xx-small"><code>  public int hashCode() {
+    String s = this.name;
+    Date d = this.zeit;
+    Title t = this.title;
+    return ((s != null ? s.hashCode() : 0) * 31
+          + (d != null ? d.hashCode() : 0)) * 31
+          + (t != null ? t.hashCode() : 0);
+  }
+
+  public boolean equals(Object object) {
+    if (this == object) return true;
+
+    if (!(object instanceof Gast))
+        return false;
+
+    Gast gast = (Gast)object;
+    if (!areEqual(this.name, gast.name)
+        || !areEqual(this.zeit, gast.zeit)
+        || !areEqual(this.title, gast.title))
+        return false;
+
+    return true;
+  }
+}</code></pre>
+                    <p class="decent">… 3 Attribute!</p>
+                </div>
+            </section>
+
+            <section class="center">
+                <h2>Properties</h2>
+                <div>
+                    <ul>
+                        <li> Klassen in Kotlin kennen keine Felder, nur Properties</li>
+
+                        <li class="tgap">Compiler <strong>generiert</strong>
+                            Getter- &amp; Setter sowie Backing Field
+                        </li>
+
+                        <li class="tgap"><img src="img/intent-properties.png"
+                                              alt="Properties of Android Intent class"
+                                              style="float: right; margin: 12px 32px">
+                            <code>getX()</code>/<code>setX()</code>-Paare
+                            <br>aus <strong>Java</strong> erscheinen
+                            <br>als Property <code>x</code>
+
+                        </li>
+                        <li class="tgap">Properties unterstützen <em>Delegation</em>
+                    </ul>
+                </div>
+            </section>
+
+
+            <section>
+                <h2>Ausdrücke &amp; Konventionen</h2>
+
+                <div class="container left abs decent"
+                    style="top: 112px; left: 520px; font-size: 92%; border-left: 4px solid #999; padding-left: 24px">
+                    <p>Mehr Ausdrücke  (<code>if</code>, <code>?:</code>, <code>?.</code>, …)
+                    <br>Pattern matching (<code>when</code>)
+                    <br>String Templates
+                    <br>Syntactic Sugar</p>
+                    <p class="tgap"><code>listOf(…)</code>, <code>repeat(3){…}</code>,
+                    <br><code>with(x){…}</code>, <code>x.apply{…}</code>, …</p>
+                    <p class="tgap"><code>public</code> ist Standard
+                    <br>kein <code>new</code>; <code>;</code> optional
+                    <br>Operatoren &amp; Dekomposition über Namen</p>
+                </div>
+                <div class="container right abs emphasize"
+                    style="top: 104px; left: 96px;  font-size: 112%; font-weight: bold">
+                    <p>Ausdrucksstärke
+                    <p style="margin-top: 3.7em">Standard-Bibliothek
+                    <p style="margin-top: 1.4em">Konventionen
+                </div>
+            </section>
+
+
+            <section data-verbatim>
+                <h3>Idiome</h3>
+
+                <!-- @formatter:off -->
+                <div data-markdown class="left" style="width: 90%; margin: 0 auto">
+                    ##### `if` ist ein Ausdruck
+                    ```
+                    fun isEven(i: Int) = if (i.mod(2) == 0) "gerade" else "ungerade"
+                    ```
+
+                    ##### `with( … ) { }`: Parameter wird im Block zum `this`
+                    ```
+                    private fun toJSON(aha: Aha): JSONObject {
+                        with(JSONObject()) {
+                            put(JSON_ID, aha.id.toString())
+                            put(JSON_TITLE, aha.title)
+                            put(JSON_USEFUL, aha.isUseful)
+                            return this
+                        }
+                    }
+                    ```
+                    Varianten: `apply()`, `let()` und `use()` als `try-with`-Equivalent
+                </div>
+                <!-- @formatter:on -->
+            </section>
+
+
+            <section data-verbatim>
+                <h3>Konventionen - Operatoren</h3>
+
+                <div data-markdown class="tgap">
+                    Feste Menge &amp; Reihenfolge an Operatoren (vs. Scala).  <!-- -->
+                    Diese werden über Namenskonventionen gemapped:
+                </div>
+                <div data-markdown class="tgap container left">
+                    `+` &rightarrow; `.plus()`
+
+                    `-` &rightarrow; `minus()`
+
+                    `..` &rightarrow; `.rangeTo()`
+
+                    `[x]` &rightarrow; `get(x)`
+                </div>
+            </section>
+
+        </section>
+
+
+
+        <!--
+          === Sicherheit ==========================================================================
+        -->
+        <section>
+
+            <section class="center">
+                <h1>Sicherheit</h1>
+            </section>
+
+
+            <section>
+                <h2>First-class immutables</h2>
+                <div class="left container">
+                    <p class="tgap"><strong>Nur-lesbare Variablen</strong>
+                        aufwandsfrei durch <code>val</code> statt <code>var</code></p>
+
+                    <p class="tgap"><strong>Standard-Collection Interfaces</strong> (<code>List</code>, <code>Set</code>, …) sind read-only</p>
+                    <p class="decent lgap small">
+                        Zum ändern muss man z.B. <code>MutableList</code> statt <code>List nutzen</code>
+                    </p>
+
+                    <p class="tgap"><strong>Klassen &amp; Methoden sind <code>final</code> by Default</strong></p>
+                    <!-- <p class="decent lgap small">Frameworks sollten sich daher als Mantra</p> -->
+                    <pre style="width: 600px; margin: 0 60px"><code class="kotlin">open class ExtendableClass {
+    open fun overridableMethod() { … }
+}</code></pre>
+
+                </div>
+                <div class="abs handwriting fragment"
+                     style="width: 530px;  transform: rotate(7deg); left: 760px; top: 500px; color:  red">
+                    Mutige Entscheidung!<br>
+                    <span style="color: #999" class="small">… Framework-Entwickler müssen Acht geben!</span>
+                </div>
+            </section>
+
+
+            <section data-background-video="img/atomic-bomb.mp4"
+                     data-state="speedupvideo">
+                <h2 style="color: #fff">The <br>billion-dollar <br>mistake</h2>
+
+                <div style="margin-top: 400px; background-color: rgba(0,0,0,.5); padding: .2em" class="fragment">
+                    <code>null</code> <span style="color:white">und seine Folgen</span>
+                </div>
+            </section>
+
+
+            <section>
+                <h2>Nullwert-Sicherheit</h2>
+
+                <div class="left" style="width: 70%; margin: 0 auto;">
+                    <p>Nur <i>explizit Nullwert-fähige Typen</i>
+                    akzeptieren <code>null</code>.
+
+                    <br>Ungeprüfte Zugriffe führen zu <em>Compile-Fehlern</em>!</p>
+
+                    <!-- style="width: 560px; margin: 0 auto" -->
+                    <div data-markdown >
+                    ```kotlin
+                    var nullable: String? = null
+                    var nonNullable: String = "Hi!"
+
+                    // Ab hier compiliert nichts mehr …
+                    nonNullable = nullable
+                    nonNullable = null
+                    nullable.isEmpty()
+                    ```
+                    </div>
+
+                    <h3 class="tgap"><em>Nullwerte sind <br>Bestandteil des Typsystems!</em></h3>
+
+                    <p class="decent x-small">An den Schnittstellen baut Kotlin
+                        Prüfungen &amp; <code>@NotNull</code> Annotationen ein.</p>
+                </div>
+            </section>
+
+
+            <section>
+                <h3>Effizienter Umgang mit Nullwert-Typen</h3>
+                <div class="smaller">
+                    <div data-markdown class="left twocol" style="border-right: 6px solid #ddd;  padding-left: 24px">
+                        <script type="text/template">
+                        ###### Safe nagivation operator<!-- .element style="margin: 32px 0 -12px 0" -->
+                        ```kotlin
+                        nullable = nullable?.toUpperCase()
+                        ```
+
+                        ###### Elvis operator<!-- .element style="margin: 48px 0 -12px 0" -->
+                        ```kotlin
+                        nonNullable = nullable ?: ""
+                        ```
+
+                        ###### Kotlin extension für Nullable-Typen<!-- .elementstyle="margin: 48px 0 -12px 0" -->
+                        ```kotlin
+                        // equals/orEmpty für String?
+                        nonNullable = nullable.orEmpty()
+                        val b = nullable.equals("foo")
+                        ```
+                        </script>
+                    </div>
+                    <!-- @formatter:off -->
+                    <div data-markdown class="left twocol" style="width: 44%; padding-left: 24px ">
+                        <script type="text/template">
+                        ###### Smartcast<!-- .element style="margin: 32px 0 -12px 0" -->
+                        ```kotlin
+                        if (nullable != null) {
+                           nonNullable = nullable.trim()
+                        }
+                        ```
+
+                        ###### Ich-weiss-es-besser&trade;<!-- .element style="margin: 48px 0 -12px 0" -->
+                        ```kotlin
+                        //NPE-Gefahr voraus!
+                        nullable!!.trim(3)
+                        nonNullable = nullable!!
+                        ```
+                        </script>
+                    </div>
+                    <!-- @formatter:on -->
+                </div>
+            </section>
+
+
+            <section>
+                <h3>Effizienter Umgang mit Nullwert-Typen</h3>
+                <div class="smaller">
+                    <div data-markdown class="">
+                        <script type="text/template">
+```java
+TextView child = null;
+if (toolbar != null && toolbar.getChildAt(0) instanceof TextView) {
+    child = (TextView) toolbar.getChildAt(0);
+}
+textView = child != null ? child : new TextView(getBaseContext());
+
+if (textView instanceof EditText) {
+    ((EditText) textView).selectAll();
+}
+```
+## &downarrow;<!-- .element style="margin: -32px auto -0 auto; color: #ccc" -->
+
+```kotlin
+val child = toolbar?.getChildAt(0) as? TextView
+textView = child ?: TextView(baseContext)
+
+if (child is EditText) {
+    child.selectAll()
+}
+```
+</script>
+                    </div>
+                </div>
+            </section>
+
+        </section>
+
+
+
+        <!--
+          === Kotlin & Android ====================================================================
+        -->
+        <section>
+
+            <section class="center">
+                <img src="img/kotlin_logos/icon_Kotlin.svg"
+                     style="height: 80px; left: 920px; top: 30px"
+                     class="abs plain"
+                     alt="Kotlin Icon"/>
+                <img src="img/android-robot.svg"
+                     style="height: 90px; left: 920px; top: 130px"
+                     class="abs plain"
+                     alt="Google Android Logo"/>
+                <h1 style="text-align: right; margin-right: 400px; padding-right: 40px; border-right: 5px solid black">Kotlin<br/>&amp; Android</h1>
+            </section>
+
+
+            <section class="center">
+                <h2><img src="img/kotlin_logos/icon_Kotlin.svg" style="height: 52px;" class="plain" alt="Kotlin Icon"/>
+                    +
+                    <img src="img/android-robot.svg" style="height: 52px;" class="plain" alt="Google Android Logo"/>
+                    – Ein Dream-Team?
+                </h2>
+                <div>
+                    <ul>
+                        <li><strong><em>effiziente</em></strong> &amp; <strong><em>fehlerarme</em></strong> Entwicklung
+                            <span class="small decent subline">
+                                – wie vielfältig illustriert
+                            </span>
+                        </li>
+                        <li>konzipiert für den <strong>industriellen Einsatz</strong></li>
+                        <li>erzeugt <strong>Java 6 Bytecode</strong>
+                            <span class="small decent subline"> – und damit perfekt Android-kompatibel</span>
+                        </li>
+                        <li><strong>100% Java Interoperabilität</strong>
+                            <span class="small decent subline">
+                                – in beide Richtungen ermöglicht …
+                            </span>
+                        </li>
+                        <li>klassenweises <strong><em>Mischen von Java &amp; Kotlin</em></strong>-Code</li>
+                        <li>
+                            <strong>Tooling-Heimspiel</strong>
+                            <span class="small decent subline">
+                                –  Android Studio &amp; Gradle 3 setzen auf Kotlin
+                            </span>
+                        </li>
+                        <li>Geringe Runtimegröße &amp; -overhead <span class="small decent subline"> – ca. 736KB in 1.0.6
+                            </span></li>
+                    </ul>
+                </div>
+            </section>
+
+
+            <section>
+                <h4>1. Android Studio Plugin installieren</h4>
+                <img data-src="img/install-kotlin-plugin.png"
+                     alt="Install Kotlin Android Studio Plugin">
+            </section>
+
+
+            <section>
+                <h4>2. Kotlin im Projekt aktivieren</h4>
+                <img src="img/project-enable-kotlin.png" style="width: 70%"
+                     alt="Enable Kotlin in Android projects">
+            </section>
+
+
+            <section>
+                <h4>3. Kotlin Extensions aktivieren (optional)</h4>
+                <img src="img/kotlin-add-android-extensions.png" style="width: 60%; margin-top: .8em"
+                     alt="Add Kotlin Extensions to Gradle Build">
+            </section>
+
+        </section>
+
+
+
+        <!--
+          === Android on Speed ====================================================================
+        -->
+        <section>
+
+            <section class="center">
+                <h1>Android on speed</h1>
+            </section>
+
+
+            <section class="container center">
+                <h3 class="bgap emphasize">Typischer Android-Boilerplate …</h3>
+                <div class="tgapxl">
+                    <pre style="width: 80%" ><code class="java">EditText editTitle = (EditText) v.findViewById(R.id.edit_title);
+editTitle.setText(mItem.getTitle());
+
+CheckBox enabledBox = (CheckBox) v.findViewById(R.id.enable_box);
+enabledBox.setChecked(true);
+
+Button createButton = (Button) v.findViewById(R.id.create_entry);
+createButton.setOnClickListener(new OnClickListener() {
+    @Override public void onClick(View button) {
+        createElement();
+    }
+});</code></pre>
+                    <div class="decent subline ">
+                        <p>… der Zugriff auf die Views in den Activities oder
+                            <br> Fragments über die <code>findViewById()</code>-Methode:
+                    </div>
+                </div>
+            </section>
+
+
+            <section>
+                <h2>Virtuelle Properties <br>für UI-Elemente</h2>
+                <div>
+                    <p>Das <em>Kotlin Android Extensions</em> erzeugt virtuelle <code>mylayout.xml</code>-Pakete
+                </div>
+                <pre class="kotlin"><code>import kotlinx.android.synthetic.main.mylayout.*</code></pre>
+                <pre class="kotlin"><code>edit_title.setText(mItem.title)
+enable_box.isChecked = true
+create_entry.setOnClickListener { createElement() }</code></pre>
+                <p class="tgap">
+                    Ein einfacher Import erlaubt <em>typsicheren</em> Zugriff auf alle
+                    <br>darin enthaltene View-Elemente direkt als simples Property.
+                    <br><span class="decent small"><i>Ohne zusätzlichen Code, Annotations</i> oder <i>Runtime!</i></span>
+                </p>
+            </section>
+
+
+            <section>
+                <div class="container" style="width:72%">
+                    <h2 class="bgap">Lambda-Ausdrücke</h2>
+                    <!-- @formatter:off -->
+                    <div data-markdown >
+                        <script type="text/template">
+                        ```
+                        view.setOnClickListener(new OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                doSomething(view);
+                            }
+                        };
+                        ```
+
+
+                        # &downarrow;<!-- .element style="margin: -32px 0 -0 0; color: #ccc" -->
+                        ```kotlin
+                        view.setOnClickListener({ view -> doSomething(view) })
+                        ```
+                        </script>
+                    </div>
+                    <!-- @formatter:on -->
+                </div>
+            </section>
+
+
+            <section data-verbatim>
+                <div class="container">
+                    <h3>Lambdas – Syntactic sugar</h3>
+                    <div class="tgapxl">
+                        <pre style=""><code class="kotlin">view.setOnClickListener({ view -> doSomething() })</code></pre>
+
+                        <p class="small tgapxl"> Nur ein Lambda-Parameter? <code>x -> …</code> kann
+                            durch <code>it</code> ersetzt werden</p>
+
+                        <pre style=""><code class="kotlin">view.setOnClickListener({ doSomething(it) })</code></pre>
+
+                        <p class="small tgapxl">Lambda ist letzter Aufrufparameter? Runde Klammern optional.
+                        </p>
+                        <pre style=""><code class="kotlin">view.setOnClickListener { doSomething(it) }</code></pre>
+                    </div>
+                </div>
+            </section>
+
+
+            <section data-verbatim>
+                <!-- <h3>Lambdas – Syntactic sugar</h3> -->
+                <!-- @formatter:off -->
+                <div data-markdown style="width: 86%; margin: 60px auto 0 auto" class="left">
+                    <script type="text/template">
+                    Einsatz in vielen Bibliotheksfunktionen<!-- .element: class="decent tgap " -->
+                    ```
+                    println("I will not ...")
+                    repeat(3) { println("  ...repeat myself") }
+                    ```
+
+                    How it works<!-- .element: class="decent tgap " -->
+                    ```
+                    public inline fun repeat(times: Int, action: (Int) -> Unit) {
+                        for (index in 0..times - 1) {
+                            action(index)
+                        }
+                    }
+                    ```
+
+                    `inline`: Wirkung wie Makro-Element. *Kein Funktionsoverhead!*
+                    </script>
+                </div>
+                <!-- @formatter:on -->
+            </section>
+
+
+            <section>
+                <h2>Extension methods / properties </h2>
+
+                <div>
+                    <ul style="margin: -12px auto 12px auto;">
+                        <li>… erlauben das Erweitern fremder Klassen
+                            <span class="decent">(Android, JRE)</span></li>
+                        <li><code>this</code> zeigt auf das erweitertete Objekt</li>
+                    </ul>
+                </div>
+
+                <!-- @formatter:off -->
+                <pre class="kotlin"><code>// Extension method  für ein Android Fragment
+fun Fragment.toast(message: String, duration: Int = Toast.LENGTH_SHORT) {
+  Toast.makeText(this.getActivity(), message, duration).show()
+}
+
+// Extension property für das Android EditText Widget
+var EditText.stringValue: String
+    get() = text.toString()
+    set(str) { setText(str)  }</code></pre>
+
+<pre class="kotlin"><code>// Verwendung
+toast("Hallo Zuschauer!")
+nameField.stringValue = "Max Muster"</code></pre>
+                <!-- @formatter:on -->
+            </section>
+
+
+            <section>
+                <h2>Utilities „frei Haus“</h2>
+                <div class="small">
+                    Zahlreiche globale Funktionen und Extensions
+                    sind in der Kotlin Standardbibliothek bereits enthalten.
+                    Sie <strong>erweitern bestehende Klassen
+                        und Interfaces</strong>
+                    <br>und sind <em>komfortabel über Code-Completion</em> zugänglich.
+                </div>
+                <div class="left" style="width: 90%; margin: 0 auto;">
+                    <!-- @formatter:off -->
+                    <pre class="java"><code class="small">List&lt;String&gt; list = Arrays.asList("a","b","c");
+for (int index = 0; index < list.size(); index++) {
+    if (index % 2 == 0)
+        System.out.println(index + " -> " + list.get(index));
+}</code></pre>
+                <div class="small">
+                    Sie helfen wesentlich beim <strong>prägnanten</strong>,
+                    dennoch <strong>intuitiv lesbar</strong> Code.
+                </div>
+
+                <pre class="kotlin"><code class="small">val list = listOf("a", "b", "c")
+for (index in list.indices.filter { it % 2 == 0 }) {
+    println("$index -> ${list[index]}")
+}
+</code></pre>
+                    <!-- @formatter:on -->
+                </div>
+                <div class="x-small  decent">
+                    Im Beispiel: <code>listOf</code>, <code>indices</code>, <code>filter</code>.
+                    Auch Bibliotheken für Android (<a href="https://github.com/Kotlin/anko">Anko</a>)
+                </div>
+            </section>
+
+        </section>
+
+
+
+        <!--
+          === Tooling =============================================================================
+        -->
+        <section>
+
+            <section class="center" data-verbatim>
+                <h1>Tooling</h1>
+            </section>
+
+
+            <section data-verbatim>
+                <h2>Fokus: Tooling</h2>
+                <div data-markdown style="width: 82%; margin: 40px auto">
+                    <script type="text/template">
+                        - Ziel: Compiler *vergleichbar schnell wie Java* (vs. Scala)
+
+                        - *Gute Auto-Completion* und *Hinweise &amp; Inspections in der IDE*    <!-- -->
+                            mit DSLs Grund #1 für Gradle auf Kotlin zu setzen
+
+                        - Compiler: *Mischen von Java &amp; Kotlin-Code* bei problemlosem Zugriff
+                            in beide Richtungen
+
+                        - *Automatische Konvertierung* von Java-Code
+                    </script>
+                </div>
+            </section>
+
+
+            <section>
+                <h3>Automatische Konvertierung <br>Java &rightarrow; Kotlin</h3>
+                <div data-markdown style="margin: 32px auto">
+                    ![Convert Java Classes](img/convert-java.png)
+                    ![Convert Java Code from Clipboard](img/kotlin-copypaste-convert.png)
+                </div>
+            </section>
+
+        </section>
+
+
+
+        <!--
+          === Demo  ===============================================================================
+        -->
+        <section>
+
+            <section class="center">
+                <h1>Demo</h1>
+            </section>
+
+            <section data-background-color="#333"
+                     data-state="speedupvideo"
+                     data-background-video="img/screencast-kotlin-android.mp4">
+            </section>
+
+
+            <section data-background-color="#333">
+                <img data-src="img/hello-android-layout.png"
+                     alt="Hello Android: Layout"
+                     style="margin: -48px; padding:0">
+            </section>
+
+
+            <section data-transition="fade-out">
+                <h3>Hello Android: Code part #1</h3>
+                <img data-src="img/hello-android-code-1.png"
+                     alt="Hello Android: Code part #1"
+                     style="margin: -0px; padding:0; width: 64%">
+            </section>
+
+
+            <section data-transition="fade-in">
+                <h3>Hello Android: Code part #2</h3>
+                <img data-src="img/hello-android-code-2.png"
+                     alt="Hello Android: Code part #1"
+                     style="margin: -0px; padding:0; width: 64%">
+            </section>
+
+        </section>
+
+        <!--
+          === Android/Kotlin: The Bad =============================================================
+        -->
+        <section>
+
+            <section class="center">
+                <h1><img src="img/kotlin_logos/icon_Kotlin.svg" style="height: 74px;" class="plain" alt="Kotlin Icon"/>
+                    <span class="decent">+</span>
+                    <img src="img/android-robot.svg" style="height: 80px;" class="plain" alt="Google Android Logo"/>
+                    – Drawbacks
+                </h1>
+            </section>
+
+
+            <section>
+                <div class="left container">
+                    <h3>Die (wenigen) Schattenseiten</h3>
+
+                    <h6>64K Methoden Limit</h6>
+                    <ul>
+                        <li>Dalvik Limit: 65.536 Methoden pro DEX file.
+                            <span class="decent small">
+                                 <br>&rightarrow; Jedes Kotlin Properties = +2 Methoden
+                                 <br>&rightarrow; Abhilfe: Multidex &amp; <code>@JvmField</code>
+                             </span>
+                         </li>
+                    </ul>
+
+                    <h6>Overhead (gering)</h6>
+                    <ul>
+                        <li>IDE: Performance der Auto-completion
+                            <span class="decent small">(minimal)</span>
+                         </li>
+                        <li>APK Größe: ~736KB &amp; Checks</li>
+                        <li>Compilerlaufzeit im ersten Durchgang <span class="decent small">(~15%)</span></li>
+                    </ul>
+
+                    <h6>Auf Java abzielende Frameworks</h6>
+                    <ul>
+                        <li>Schöne API umständlicher; besser Java nutzen</li>
+                    </ul>
+                </div>
+            </section>
+
+
+            <section>
+                <h3>Android &amp; <code>null</code> – Typische Konstellation</h3>
+                <div data-markdown class="bgap">
+                    Werte für Initialisierung erst im Android-Callbacks bekannt …
+
+                    ```kotlin
+                    class EditPersonActivity : FragmentActivity() {
+
+                        var person: Person
+                        var anrede: String
+                        var imm: InputMethodManager
+                        …
+
+                        override fun onCreate(savedInstanceState: Bundle?) {
+                            super.onCreate(savedInstanceState)
+                            val personId = savedInstanceState?.getInt("value",0)
+
+                            person = PersonManager.load(id)
+                            anrede = resources.getString(R.string.anrede)
+                            imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+                        }
+                    }
+                    ```
+                </div>
+                <div class="abs handwriting fragment"
+                     style="width: 530px;  transform: rotate(-7deg);
+                            left: 620px; top: 270px; color: #f33; font-size: 200%">
+                    So nicht möglich!
+                </div>
+            </section>
+
+
+            <section class="left">
+                <h3>Lösungen: Verzögerte Initalisierung</h3>
+                <div data-markdown class="bgap">
+                    ##### `lateinit` Properties (empfohlen)
+                    ```kotlin
+                    lateinit var person: Person
+                    ```
+                </div>
+                <div data-markdown class="bgap fragment">
+                    ##### Delegation des Properties
+                    ```kotlin
+                    var anrede: String by Delegates.notNull()
+                    ```
+                </div>
+                <div class="fragment">
+                    <div data-markdown class="bgap">
+                        ##### Lazy-Initalisierung
+                        ```kotlin
+                        val imm: InputMethodManager by lazy {
+                            getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+                        }
+                        ```
+                    </div>
+                    <div class="abs handwriting"
+                         style="width: 580px;  transform: rotate(+9deg);
+                                left: 760px; top: 230px; ">
+                                Wirft sprechende Exception, falls ohne
+                                Initialisierung gelesen wird!
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- <section>
+                <h3>Arbeiten mit Nullwert-fähigem Java-Code</h3>
+                    <img src="img/java-nullable.png" class="plain" style="width: 540px">
+                    <p class="small">Plattform Typ <code>Klasse!</code></p>
+                    <div class="abs handwriting"
+                         style="width: 430px;  transform: rotate(-13deg);
+                                left: 920px; top: 560px; color: #ccc; font-size: 110%">
+                        Kann nicht aus Kotlin heraus erzeugt werden!
+                    </div>
+            </section> -->
+
+        </section>
+
+
+
+        <!--
+          === Kotlin Advanced =====================================================================
+        -->
+        <section>
+
+            <section class="center">
+                <h1><img src="img/kotlin_logos/icon_Kotlin.svg" style="height: 80px;" class="plain" alt="Kotlin Icon"/>
+                    – Advanced
+                </h1>
+            </section>
+
+            <section class="center">
+                <h2>Funktionen als <br>first-class elements</h2>
+
+                <div class="left" style="width: 80%; margin: 20px auto">
+                    <p>Funktionen sind Sprachelemente erster Klasse und können daher auch
+                        als <em>Variablen, Properties, Parameter</em> und <em>Rück&shy;gabe&shy;werte</em> genutzt werden.</p>
+
+                    <p class="fragment"> Durch Verschachtelung lassen sich
+                        <em>Funktionen höherer Ordnung</em>
+                        <i>(Higher-order functions)</i>
+                        erschaffen
+                    </p>
+                </div>
+            </section>
+
+
+            <section>
+                <h3>Higher-order functions – Beispiel</h3>
+
+                <div>
+                <pre style="width: 76%; margin: 0"><code class="kotlin">class FirstClassFunction(
+        val f1: (String) -> Int,
+        val f2: (Int) -> Boolean) {
+
+    fun strToBool(str: String): Boolean {
+        val f: (String) -> Boolean = higherOrderFun()
+        return f(str)
+    }
+
+    private fun higherOrderFun(): (String) -> Boolean {
+        return { x -> f2(f1(x)) }
+    }
+}
+
+fun main(args: Array&lt;String&gt;) {
+    val c = FirstClassFunction(
+                Integer::parseInt,
+                { it % 2 == 0 }
+            )
+    val strings = listOf("2", "7", "8")
+    println(strings.filter(c::strToBool)) // Kotlin 1.1+
+}</code></pre>
+                </div>
+
+                <div class="abs" style="top: 100px; left: 954px; width: 30%">
+                    <p style="text-align: left; line-height: .83em; font-size: .8em">
+                        &nbsp;<br>
+                        <span class="fragment">&leftarrow; Funktion als <em>Parameter</em><br></span>
+                        &nbsp;<br>
+                        &nbsp;<br>
+                        &nbsp;<br>
+                        <span class="fragment">&leftarrow; Funktion als <em>Variable</em><br>
+                        &nbsp;<br>
+                        &nbsp;<br>
+                        &nbsp;<br>
+                        <span class="fragment">&leftarrow; Funk. als <em>Rückgabewert</em></span><br>
+                        <span class="fragment">&leftarrow; <em>Kombination</em> via <em>Lambda</em></span><br>
+                        <br></span>
+                        <br></span>
+                        &nbsp;<br>
+                        &nbsp;<br>
+                        &nbsp;<br>
+                        <span class="fragment">&leftarrow; Funk.-<em>Referenz</em> </span><br>
+                        <span class="fragment">&leftarrow; <em>Lambda</em>-Ausdruck</span><br>
+                        &nbsp;<br>
+                        &nbsp;<br>
+                        <span class="fragment">&rightarrow; <i>Was kommt raus?</i> </span><br>
+                        <br>
+                    </p>
+                </div>
+            </section>
+
+
+            <section>
+                <h3>Typsichere DSLs über „Empfänger“-Objekt</h3>
+
+                <p class="small left" style="width: 94%; margin: 0 auto">
+                    Es ist möglich, Funktionssignaturen zu definieren, die Lambda-Ausdrücke
+                    erwarten bei denen <code>this</code> auf Zielobjekte eines bestimmten Typs zeigen.
+                </p>
+                <p class="small left decent" style="width: 94%; margin: 20px auto">
+                    Darüber sind typsichere DSLs möglich:
+                </p>
+
+                <!-- @formatter:off -->
+                <div data-markdown style="width: 52%; margin: 0">
+                    ```kotlin
+                    class HTML {
+                        fun body() { ... }
+                    }
+
+                    fun html(init: HTML.() -> Unit): HTML {
+                      val html = HTML()
+                      html.init()
+                      return html
+                    }
+
+                    html {
+                        body()
+                    }
+                    ```
+                </div>
+                <!-- @formatter:on -->
+
+                <div class="abs" style="top: 284px; left: 610px; width: 60%">
+                    <p style="text-align: left; line-height: .83em; font-size: .8em">
+                        &nbsp;<br>
+                        &nbsp;<br>
+                        &nbsp;<br>
+                        &nbsp;<br>
+                        <span class="fragment">&leftarrow; Erwartet Funktion mit <code>this</code>
+                            vom Typ <code>HTML</code></span><br>
+                        <span class="fragment">&leftarrow; Erstellung des <i>receiver object</i> </span><br>
+                        <span class="fragment">&leftarrow; Führe Lambda auf <i>receiver object</i>  aus</span><br>
+                        <br>
+                        <br>
+                        <br>
+                        <span class="fragment">&leftarrow; Kurzform von <code>html({…})</code></span><br>
+                        <span class="fragment">&leftarrow; <em>Lambda</em>-Ausdruck für einen <code>HTML</code>-„Empfänger“</span><br>
+                    </p>
+                </div>
+            </section>
+
+
+            <section>
+                <h3>Anko: Android-DSL für XML</h3>
+
+                <!-- @formatter:off -->
+                <div data-markdown>
+                    ```kotlin
+                    relativeLayout {
+                        lparams(width = matchParent, height = matchParent)
+                        backgroundResource = R.drawable.background_activated
+
+                        checkBox {
+                            enabled = false
+                            gravity = Gravity.CENTER
+                            padding = dip(4)
+                            lparams(width = wrapContent, height =  wrapContent)  {
+                                alignParentRight()
+                            }
+                        }
+
+                        textView {
+                            textResource = R.string.aha_title
+                            rightPadding = dip(4)
+                            leftPadding = dip(4)
+                            lparams(width = matchParent, height =  wrapContent) {
+                                leftOf(cb)
+                            }
+                        }
+                    }
+                    ```
+
+                </div>
+                <!-- @formatter:on -->
+            </section>
+
+
+            <section data-verbatim>
+                <h3>Infix Notation</h3>
+
+                <!-- @formatter:off -->
+                <div data-markdown style="width: 60%; margin: 48px auto;" >
+                ```kotlin
+                infix fun Int.shl(x: Int): Int {
+                   …
+                }
+
+                1 shl 2       // als Equivalent zu 1.shl(2)
+                ```
+                </div>
+                <!-- @formatter:on -->
+                <div data-markdown class="container small">
+                    1. Sind Member-Funktionen oder Extension Methods
+                    2. Haben einen einzigen Parameter
+                    3. Und sind mit dem `infix` Schlüsselwort markiert
+                </div>
+            </section>
+
+        </section>
+
+
+
+        <!--
+          === Fazit ==== =========================================================================
+        -->
+        <section>
+
+            <section class="center">
+                <h1>Fazit</h1>
+            </section>
+<!--
+
+            <section>
+                <h2>The Good vs. The Bad vs. The Ugly</h2>
+                <div data-markdown>
+                    - Leicht &amp; intuitiv erlernbar! Vieles erschließt sich über Auto-Completion &amp; Intuition
+                    - Macht viel Spass &amp; Freude in der Verwendung!
+                    * Non-Nullables die in der Praxis doch welche sind
+                    - kein static! (compantion object)
+                    - kein package protected
+                </div>
+            </section>
+
+
+            <section>
+                <h3>Lernen: Kotlin Koans</h3>
+                <img data-src="img/koans-edu-plugin.png"
+                     style="width: 72%"
+                     alt="Kotlin Educational Plugin mit Kotlin Koans">
+            </section>-->
+
+
+            <section>
+                <h2>Im Browser <!--mitmachen &amp;--> ausprobieren</h2>
+                <img data-src="img/try-kotlin.png" style="width: 100%"
+                     alt="Kotlin Koans">
+                <p style="font-size: 140%; margin-top: -12px;" class="decent">
+                    &rightarrow; <a href="http://try.kotl.in/"><b>http://try.kotl.in/</b></a>
+                </p>
+            </section>
+
+
+            <section>
+                <h2>Quellen &amp; Materalien</h2>
+
+                <div class="threecol small left" data-markdown>
+                    ##### Materialien für den Einstieg
+                    * [*kotlinlang.org*](https://kotlinlang.org/)
+                    * [*Kotlin Koans*](https://github.com/Kotlin/kotlin-koans)   <!--  -->
+                       auch online: [try.kotl.in](http://try.kotl.in)
+                       in IntelliJ: [Kotlin Edu Plugin](https://blog.jetbrains.com/kotlin/2016/03/kotlin-educational-plugin/)
+                    * [Ein Überblick über Java-Alternativen für den industriellen
+                    Einsatz](http://www.heise.de/developer/artikel/Ein-Ueberblick-ueber-Java-Alternativen-fuer-den-industriellen-Einsatz-2074554.html),
+                    Benjamin Schmid
+                </div>
+
+                <div class="threecol small left" data-markdown>
+                    ##### Referenzen
+                    - [Sprachreferenz](http://kotlinlang.org/docs/reference/)
+
+                    ##### Verzeichnisse
+                    - [Awesome Kotlin](http://kotlin.link/)
+                    - [OSS Projects &amp; Libraries](https://kotlinlang.org/docs/resources.html)
+
+                    ##### Diverses
+                    - [*@kotlin*](https://twitter.com/kotlin) &amp; [*@bentolor*](https://twitter.com/bentolor)
+                    - [github.com/bentolor](https://github.com/bentolor)
+                </div>
+
+                <div class="threecol small left" data-markdown>
+                    ##### Nennenswerte Frameworks
+                    - [KAndroid](https://github.com/pawegio/KAndroid)
+                    - [Fuel](https://github.com/kittinunf/Fuel) (HTTP f. Android)
+                    - [RxKotlin](https://github.com/ReactiveX/RxKotlin) (Reactive)
+                    - [spek](https://github.com/jetbrains/spek) (Testing)
+                    - [kovenant](https://github.com/mplatvoet/kovenant)  <!-- -->
+                      (Android Promises)
+                    - [kotlinx.support](https://github.com/Kotlin/kotlinx.support)  <!-- -->
+                       (JDK7/8 features)
+                    - [Klaxon](https://github.com/cbeust/klaxon) (JSON)
+                </div>
+
+                <div class="x-small" style="padding-top: 60px; clear: left" data-markdown>
+                    Bildnachweis:
+                    [Kotlin Islands Maps](https://commons.wikimedia.org/wiki/File:Kotlin_Island_1706.png),
+                    [Atomic bomb
+                    explosion](https://www.pond5.com/stock-footage/37592494/fireball-and-smoke-formation-out-atomic-blast.html),
+                    [Android Robot](https://commons.wikimedia.org/wiki/File:Android_robot.svg),
+                    [Kotlin Logo](https://resources.jetbrains.com/assets/products/kotlin/kotlin_logos.zip),
+                    [Hand-written arrows](http://designercandies.net/hand-drawn-arrows-brush/)
+                </div>
+            </section>
+
+        </section>
+
+<!--
+        <section>
+
+            <section>
+                <h3>Java Interoperabilität – Allgemeines</h3>
+                <ul>
+                    <li>Klassenweises <em>Mischen von Java &amp; Kotlin-Code</em> problemlos</li>
+                    <li>Alle Java-Bibliotheken können direkt genutzt werden</li>
+                    <li>Kotlin &rightarrow; Java in der Regel nahtlos; Java 7/8/9 ab Kotlin 1.1
+                    <li>Java &rightarrow; gelegentlich sperriger
+                        <ul style="font-size: .86em" class="decent small">
+                            <li>kein direktes <code>static</code> in Kotlin, sondern <i>companion object</i>
+                                <!- - @formatter:off - ->
+                                <pre><code class="small">public static final int VISIBLE = 0x00000000;
+                                    &downarrow;
+companion object {
+    @JvmField val VISIBLE: Int = 0x00000000
+}</code></pre>
+                                <!- - @formatter:on - ->
+                            </li>
+                            <li>SAMs mit <code>void</code> statt <code>Unit</code></li>
+                            <li>Kein <i>package protected</i> in Kotlin</li>
+                        </ul>
+                        <p>→ Für die API von Java-Libraries eher in Java bleiben</p>
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <div class="left container">
+                    <h3>Java Interoperabilität – Android</h3>
+                    <h6>Pro:</h6>
+                    <ul>
+                        <li>volle Java 6-Kompabilität & nahtlose Studio-Integration</li>
+                        <li>kleine Runtime, kein/geringer Overhead dank <code>inline</code> &amp; Co.</li>
+                        <li>Mischen von Code &amp; Java-Konverter</li>
+                        <li>Signifikanter Effizienzgewinn durch Sprache und Android Extensions</li>
+                        <li>Einsparpotential: Kotlin stdlib ersetzt einige, übliche Java-Bibliotheken</li>
+                    </ul>
+
+                    <h6>Con:</h6>
+                    <ul>
+                        <li>Durch öffentliche Properties wächst die Methoden-Anzahl stärker<br>
+                            <span class="decent lgap">&rightarrow; 64k Methodenlimit von Android / DEX <br></span>
+                            <span class="decent lgap">&rightarrow; ggf. <code>private</code> und <code>@JvmField</code> bevorzugen</span>
+                        </li>
+                        <li>UI XML vs. Anko: eher ambivalent</li>
+                    </ul>
+                </div>
+            </section>
+
+        </section>
+-->
+
+    </div>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<!-- hide "verbatim" sections if URL contains "terse"-Keyword -->
+<script>
+    if (window.location.search.match(/terse/gi)) {
+        var sections = document.getElementsByTagName('section');
+        for (var i = sections.length-1; i > -1; --i) {
+            if (sections[i].hasAttribute("data-verbatim")) {
+                sections[i].remove();
+            }
+        }
+    }
+</script>
+
+<script>
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        history: true,
+        progress: true,
+        slideNumber: true,
+        mouseWheel: true,
+        controls: false,
+        fragments: true,
+        width: 1280,
+        height: 720,
+        margin: 0.1,
+        maxScale: 10,
+        center: false,
+        parallaxBackgroundImage: 'img/kotlin-island-map-light.png', // 'http://jamescroft.co.uk/wp-content/uploads/2015/01/217-L6YVU1.jpg',
+        parallaxBackgroundSize: '4177px 2118px',
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+            {src: 'plugin/markdown/marked.js'},
+            {src: 'plugin/markdown/markdown.js'},
+            {src: 'plugin/notes/notes.js', async: true},
+            {
+                src: 'plugin/highlight/highlight.js', async: true, callback: function () {
+                hljs.initHighlightingOnLoad();
+            }
+            },
+            {src: 'plugin/zoom-js/zoom.js', async: true}  // Zoom in and out with Alt+click
+        ]
+    });
+</script>
+
+<!-- hack: increase playback speed of background video -->
+<script>
+    Reveal.addEventListener( 'speedupvideo', function() {
+        document.getElementsByTagName("video")[0].playbackRate = 2.5
+    }, false );
+</script>
+
+
+</body>
+</html>

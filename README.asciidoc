@@ -1,0 +1,11 @@
+=  Java++: Effiziente & sichere JVM-Entwicklung mit Kotlin
+
+== Summary
+_This is my HTML5/RevealJS based presentation about Kotlin as alternative during Java development._
+
+== Abstract
+Kotlin ist eine innovative, freie und statisch typisierte Programmiersprache die in JVM Bytecode, Javascript und native Binaries compiliert. Auf ihrer Heimatplattform, der JVM, verfolgt Kotlin das Ziel vollständige Java-kompatibel zu bleiben und gleichzeitig sicherer und präziser zu sein. Die ausdrucksstarke und dennoch gut lesbaren Syntax mit funktionalen Features verspricht weniger Boilerplate Code bei zugleich fehlerärmeren Entwicklung. Ausgerichtet auf den Unternehmenseinsatz hat für Kotlin neben der exzellenten Interoperabilität mit Java stets auch die gute Verständlichkeit, schnelle Compilierzeiten und eine hervorragende Tooling-Unterstützungen hohe Priorität.
+
+JetBrains war von Anfang an stets bemüht Kotlin als ein offenes, unabhängiges und dauerhaft überlebensfähiges Projekt zu etablieren. Spätestens seitdem Kotlin im Mai 2017 auf der Google I/O offiziell in die Android Plattform eingezogen ist, dürfte dies nun endgültig als gesichert gelten und es ist an der Zeit einen intensiven Blick auf diese vollwertige Java Alternative zu werfen.
+
+In dieser Session erleben wir live, wie es sich anfühlt der NullpointerException auf Nimmerwiedersehen zu sagen und sie für Entwicklung gegen funktionale Features, Dataclasses und Extension-Methods einzutauschen. Codebeispiele helfen beim Kennenlernen der Sprache und vermitteln lebendige Eindrücke. Im Fortgeschrittenen Teil der Session blicken wir z.B. auf die Higher-order Functions und der Möglichkeit zur Gestaltung typsicherer DSLs mittels Empfängerobjekten und welche Verbindungen sich hier mit Gradle ergeben. Ein Aus- und Rückblick auf die letzten Neuerungen wie z.B. der Möglichkeit zu nativen iOS Anwendungen und Multiplattform-Projekten rundet das Ganze ab.
