@@ -1,0 +1,437 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <description>IDEA 2016.2 Inspection Profile @bentolor. Last update: 2016-08-03</description>
+    <option name="myName" value="Project Default" />
+    <option name="myLocal" value="true" />
+    <inspection_tool class="'var' could be a 'val'" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="AbstractValueInTrait" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="AccessorLikeMethodIsEmptyParen" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="AccessorLikeMethodIsUnit" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="Add Shebang line" enabled="false" level="INFO" enabled_by_default="false" />
+    <inspection_tool class="AddShebang" enabled="false" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="AndroidLintProguardSplitConfig" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="AndroidLintResourceAsColor" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="AndroidLintSparseArray" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="AndroidLintStyleCycle" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="AndroidLintUseCheckPermission" enabled="false" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="AntDuplicateImportedTargetsInspection" enabled="true" level="INFO" enabled_by_default="true" />
+    <inspection_tool class="Apparent refinement of result type; are you missing an '=' sign?" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="ApparentRefinementOfResultType" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="Applied Type Lambda can be simplified" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="AppliedTypeLambdaCanBeSimplified" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="ArchaicSystemPropertyAccess" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="ArithmeticOnVolatileField" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="Array use of a simple variable" enabled="false" level="INFO" enabled_by_default="false" />
+    <inspection_tool class="ArraySizeCall" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="BashUnregisterGlobalVariableInspection" enabled="false" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="BoundFieldAssignment" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="BpmnConfigDomInspection" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="Case Class Param" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="CaseClassParam" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="CatchGenericClass" enabled="true" level="INFO" enabled_by_default="true" />
+    <inspection_tool class="CfmlFileReference" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="CfmlReferenceInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="Chained Package Clause" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="ChainedPackage" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="Change to a builtin, read-only shell variable" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="ClassInTopLevelPackage" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="CodeAssistanceForExternalNodeModule" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="ComponentNotRegistered" enabled="false" level="WARNING" enabled_by_default="false">
+      <option name="CHECK_ACTIONS" value="true" />
+      <option name="IGNORE_NON_PUBLIC" value="true" />
+    </inspection_tool>
+    <inspection_tool class="ComponentRegistrationProblems" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="Convert to string" enabled="false" level="INFO" enabled_by_default="false" />
+    <inspection_tool class="CssInvalidElementInspection" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="CssInvalidHtmlTagReferenceInspection" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="CssInvalidImportInspection" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="CssInvalidShorthandPropertyValue" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="CssMissingSemicolonInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="CssNegativeValueInspection" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="CssOptimizeSimilarPropertiesInspection" enabled="true" level="INFO" enabled_by_default="true" />
+    <inspection_tool class="CssRgbFunction" enabled="false" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="CssRgbFunctionInspection" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="CssShorthandPropertyValue" enabled="false" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="CssUnknownTargetInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="CssUnusedSymbolInspection" enabled="false" level="INFO" enabled_by_default="false" />
+    <inspection_tool class="CucumberDuplicatedStep" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="CucumberStepDefinitionParameter" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="DangerousCatchAll" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="DeprecatedDefenderSyntax" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="DeprecatedGemInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="Duplicate function" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="DuplicateFunction" enabled="false" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="DuplicateMnemonic" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="EjbErrorInspection" level="ERROR" enabled="false" />
+    <inspection_tool class="EjbWarningInspection" level="WARNING" enabled="false" />
+    <inspection_tool class="Empty-paren method accessed as parameterless" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="EmptyParenMethodAccessedAsParameterless" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="EmptyParenMethodOverridenAsParameterless" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="Empy-paren Scala method overriden as parameterless" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="Evaluate arithmetic expression" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="Evaluate expansion" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="EvaluateArithmeticExpression" enabled="false" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="EvaluateExpression" enabled="false" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="ExtensionPointBeanClass" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="FaceletsDetectingInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="FallthroughInSwitchStatementJS" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="File Name" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="FileEqualsUsage" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="Fix shebang" enabled="false" level="WARNING" enabled_by_default="false">
+      <shebang>/bin/bash</shebang>
+      <shebang>/bin/sh</shebang>
+    </inspection_tool>
+    <inspection_tool class="FixShebang" enabled="false" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="FlexUnitClassInProductSourceInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="FlexUnitClassVisibilityInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="FlexUnitClassWithNoTestsInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="FlexUnitEmptySuiteInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="FlexUnitMethodHasParametersInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="FlexUnitMethodInSuiteInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="FlexUnitMethodIsPropertyInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="FlexUnitMethodIsStaticInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="FlexUnitMethodReturnTypeInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="FlexUnitMethodVisibilityInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="FlexUnitMixedAPIInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="FlexUnitSuiteWithNoRunnerInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="FloatArithmetic" enabled="false" level="INFO" enabled_by_default="true" />
+    <inspection_tool class="FloatLiteralEndingWithDecimalPoint" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="Floating point literal ending with '.'" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="FlowRequiredBeanTypeInspection" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="FtlCallsInspection" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="FtlDeprecatedBuiltInsInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="FtlFileReferencesInspection" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="FtlImportCallInspection" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="FtlReferencesInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="FtlTypesInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="FtlWellformednessInspection" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="Function overrides internal command" enabled="false" level="INFO" enabled_by_default="false" />
+    <inspection_tool class="FunctionTupleSyntacticSugar" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="GemInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="Geronimo" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="GitignoreCoverEntry" enabled="false" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="GitignoreDuplicateEntry" enabled="false" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="GitignoreUnusedEntry" enabled="false" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="Glassfish" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="Global definition of local var" enabled="false" level="INFO" enabled_by_default="false" />
+    <inspection_tool class="GlobalLocalVarDef" enabled="false" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="GroovyGetterCallCanBePropertyAccess" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="GroovyImmutableAnnotation" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="GroovySetterCallCanBePropertyAccess" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="GroovyUnresolvedAccess" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="GtkPreferredJComboBoxRenderer" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="GuavaFluentIterable" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="HardcodedActionUrl" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="InjectOfNonPublicMember" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="InspectionDescriptionNotFoundInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="InspectionMappingConsistency" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="InspectionUsingGrayColors" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="Integer division with remainder found." enabled="false" level="INFO" enabled_by_default="false" />
+    <inspection_tool class="IntentionDescriptionNotFoundInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="InternalCommandFunctionOverride" enabled="false" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="JRubyDeprecatedJavaMethodUsageInspection" enabled="false" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="JRubyImplement" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="JRubyImplementInterfaceInspection" enabled="false" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="JRubyJavaFieldAccessInspection" enabled="false" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="JRubyPublicClassInspection" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="JRubyStringImportInspection" enabled="false" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="JRubySuperClassMustBeAClass" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="JRubySuperClassMustBeAClassInspection" enabled="false" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="JRubyUnusedImportInspection" enabled="false" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="JSFieldCanBeLocal" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="JSFieldCanBeLocalInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="JSImplicitlyInternalDeclaration" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="JSLintValidation" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="JSLowercasedConstructorCall" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="JSMismatchedCollectionQueryUpdateInspection" enabled="false" level="WARNING" enabled_by_default="false">
+      <option name="queries" value="trace,write" />
+      <option name="updates" value="pop,push,shift,splice,unshift" />
+    </inspection_tool>
+    <inspection_tool class="JSPotentiallyInvalidConstructorUsages" enabled="false" level="WARNING" enabled_by_default="false">
+      <option name="myConsiderUppercaseFunctionsToBeConstructors" value="true" />
+    </inspection_tool>
+    <inspection_tool class="JSSuspiciousNameCombinationInspection" enabled="false" level="INFO" enabled_by_default="false">
+      <group names="x,width,left,right" />
+      <group names="y,height,top,bottom" />
+      <exclude classes="Math" />
+    </inspection_tool>
+    <inspection_tool class="JSValidateJSON" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="JSXLanguageLevel" enabled="false" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="JasmineAdapterSupport" enabled="false" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="Java accessor method called as empty-paren" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="Java accessor method overriden as empty-paren" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="Java mutator method accessed as parameterless" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="Java mutator method overriden as parameterless" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="JavaAccessorMethodCalledAsEmptyParen" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="JavaAccessorMethodOverridenAsEmptyParen" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="JavaMutatorMethodAccessedAsParameterless" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="JavaMutatorMethodOverridenAsParameterless" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="JpaModelErrorInspection" level="ERROR" enabled="false" />
+    <inspection_tool class="JpaModelWarningInspection" level="WARNING" enabled="false" />
+    <inspection_tool class="JpdlModelInspection" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="JsTestDriverTestCaseWithoutTests" enabled="false" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="JstdAssertionFrameworkSupport" enabled="false" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="LegacyStringFormatting" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="LessUnresolvedImport" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="LiquibaseEJBSchema" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="LoggerInitializedWithForeignClass" enabled="false" level="WARNING" enabled_by_default="false">
+      <option name="loggerClassName" value="org.apache.log4j.Logger,org.slf4j.LoggerFactory,org.apache.commons.logging.LogFactory,java.util.logging.Logger" />
+      <option name="loggerFactoryMethodName" value="getLogger,getLogger,getLog,getLogger" />
+    </inspection_tool>
+    <inspection_tool class="LoopVariableNotUpdated" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="Method with Unit result type defined like function" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="Method with Unit result type defined with equals sign" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="Method with Unit result type is parameterless" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="Method with accessor-like name has Unit result type" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="Method with accessor-like name is empty-paren" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="Method with mutator-like name is parameterless" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="MinitestFrameworkSupportInspection" enabled="false" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="MissedExecutable" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="Missing include file" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="MissingInclude" enabled="false" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="MissingMnemonic" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="MutatorLikeMethodIsParameterless" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="NameBooleanParameters" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="NewIssuesGlobalInspectionTool" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="NoButtonGroup" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="NoLabelFor" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="NoScrollPane" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="NoTailRecursionAnnotation" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="NotImplementedCode" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="OldIssuesGlobalInspectionTool" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="OneButtonGroup" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="OrredNotEqualExpression" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="Package Name" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="PageflowModelInspection" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="PagesFileModelInspection" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="PagesModelInspection" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="Parameterless Scala member overriden as empty-paren" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="ParameterlessMemberOverridenAsEmptyParen" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="PhingDomInspection" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="PluginXmlValidity" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="PostfixMethodCall" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="RailsChecklist01" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="RailsChecklist02" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="RailsChecklist03" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="RailsChecklist04" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="RailsChecklist05" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="RailsControllerCallsModelOnce" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="RailsCustomFindAccessedTwice" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="RailsFindMethodsShouldnotBeCalledFromView" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="RailsI18nInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="RailsParamDefResolve" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="RailsTooManySharedVariables" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="Readonly variable" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="Recursive file inclusion" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="RecursiveInclusion" enabled="false" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="Redundant Return" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="Redundant Unit result type annotation" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="RedundantBlock" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="RedundantConversion" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="RedundantImport" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="ReferenceMustBePrefixed" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="RelativeImport" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="RemoveRedundantReturn" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="Replace with backquote" enabled="false" level="INFO" enabled_by_default="false" />
+    <inspection_tool class="Replace with subshell" enabled="false" level="INFO" enabled_by_default="false" />
+    <inspection_tool class="ReplaceWithBackquote" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+    <inspection_tool class="ReplaceWithSubshell" enabled="false" level="INFO" enabled_by_default="false" />
+    <inspection_tool class="RequiredAttributes" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myAdditionalRequiredHtmlAttributes" value="src" />
+    </inspection_tool>
+    <inspection_tool class="RestRoleInspection" enabled="false" level="WARNING" enabled_by_default="false">
+      <option name="ignoredRoles">
+        <value>
+          <list size="0" />
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="RubyArgCount" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="RubyArgumentParentheses" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="RubyAssignmentExpressionInConditionalInspection" enabled="false" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyCaseWithoutElseBlockInspection" enabled="false" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyClassMethodNamingConvention" enabled="false" level="WARNING" enabled_by_default="false">
+      <option name="m_maxLength" value="20" />
+    </inspection_tool>
+    <inspection_tool class="RubyClassModuleNamingConvention" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="RubyClassVariableNamingConvention" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="RubyClassVariableUsageInspection" enabled="false" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyCodeStyle" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="RubyConstAlreadyInitialized" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="RubyConstReAssignment" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="RubyConstant" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="RubyConstantNamingConvention" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="RubyControlFlowConversionInspection" enabled="false" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyConvertAllHashesInFileInspections" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+    <inspection_tool class="RubyDeadCode" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="RubyDefParenthesesInspection" enabled="false" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyDeprecatedSyntaxInspection" enabled="false" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyDuplicatedKeysInHashInspection" enabled="false" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyDynamicConstAssignment" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="RubyEmptyRescueBlockInspection" enabled="false" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyExpressionInStringInspection" enabled="false" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyForLoopInspection" enabled="false" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyGlobalVariableNamingConvention" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="RubyHashKeysTypesInspection" enabled="false" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyIfCanBeCaseInspection" enabled="false" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyInstanceMethodNamingConvention" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="RubyInstanceVariableNamingConvention" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="RubyInstanceVariableToStringInspection" enabled="false" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyJumpError" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="RubyLiteralArrayInspection" enabled="false" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyLocalVariableNamingConvention" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="RubyNestedTernaryOperatorsInspection" enabled="false" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyParameterNamingConvention" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="RubyParenthesesAfterMethodCallInspection" enabled="false" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyParenthesesAroundConditionInspection" enabled="false" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyQuotedStringsInspection" enabled="false" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyResolve" enabled="false" level="WARNING" enabled_by_default="false">
+      <option name="warnImplicitResults" value="false" />
+    </inspection_tool>
+    <inspection_tool class="RubyScope" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="RubyShouldaUnsupportedTestFile" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="RubySimplifyBooleanInspection" enabled="false" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyStringKeysInHashInspection" enabled="false" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubySuperCallWithoutSuperclassInspection" enabled="false" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyThenInMultilineConditionalInspection" enabled="false" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyTooManyInstanceVariablesInspection" enabled="false" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyTooManyMethodsInspection" enabled="false" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyUnlessWithElseInspection" enabled="false" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyUnnecessaryReturn" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="RubyUnnecessaryReturnStatement" enabled="false" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyUnnecessaryReturnValue" enabled="false" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyUnnecessarySemicolon" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="RubyUnusedLocalVariable" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="RubyWrongHash" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="SassScssUnresolvedFunction" enabled="false" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="SassUnresolvedFunction" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="SassUnresolvedImport" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="SassUnresolvedMixin" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="SassUnresolvedPlaceholderSelector" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="SassUnresolvedVariable" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="SbtFileStructure" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="Scala Deprecation" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="ScalaDefaultFileTemplate" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="ScalaDefaultFileTemplateUsage" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="ScalaDeprecation" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="ScalaDocInlinedTag" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="ScalaDocMissingParameterDescription" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="ScalaDocUnbalancedHeader" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="ScalaDocUnclosedTagWithoutParser" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="ScalaDocUnknownParameter" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="ScalaDocUnknownTag" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="ScalaFileName" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="ScalaMalformedFormatString" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="ScalaPackageName" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="ScalaRedundantCast" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="ScalaRedundantConversion" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="ScalaUnnecessarySemicolon" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="ScalaUnresolvedPropertyKey" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="ScalaUnusedSymbol" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="ScalaVarCouldBeVal" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="ScalaXmlUnmatchedTag" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="SeamAnnotationIncorrectSignatureInspection" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="SeamAnnotationsInconsistencyInspection" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="SeamBijectionIllegalScopeParameterInspection" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="SeamBijectionTypeMismatchInspection" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="SeamBijectionUndefinedContextVariableInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="SeamDomModelInspection" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="SeamDuplicateComponentsInspection" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="SeamIllegalComponentScopeInspection" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="SeamJamComponentInspection" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="ShouldBeWrappedInCondition" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="Simple use of array variable" enabled="false" level="INFO" enabled_by_default="false" />
+    <inspection_tool class="Simple variable usage" enabled="false" level="INFO" enabled_by_default="false" />
+    <inspection_tool class="SimpleVarUsage" enabled="false" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="SingleImport" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="Sonar.Violations" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="SpringDataJpaMethodInconsistencyInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="SpringIntegrationDeprecations21" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="SpringIntegrationModel" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="SpringIntegrationModelErrorInspection" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="SpringIntegrationModelInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="SpringMessageDispatcherWebXmlInspection" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="SpringOsgiElementsInconsistencyInspection" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="SpringOsgiListenerInspection" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="SpringOsgiServiceCommonInspection" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="SpringReplacedMethodsInspection" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="SpringSecurityElementsInconsistencyInspection" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="SpringWebServiceAnnotationsInconsistencyInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="SpringWebServicesConfigurationsInspection" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="SqlDeliverTableNameInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="Struts2ModelInspection" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="StrutsInspection" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="StrutsTilesInspection" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="StrutsValidatorFormInspection" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="StrutsValidatorInspection" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="Suspicious Inferred Type" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="Suspicious shadowing by a Variable Pattern" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="SuspiciousInferredType" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="Syntactic Sugar" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="TelReferencesInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="ThrowableInFormattedMessage" enabled="false" level="INFO" enabled_by_default="false" />
+    <inspection_tool class="TypeAnnotation" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="TypeParameterShadow" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="UNUSED_SYMBOL" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="LOCAL_VARIABLE" value="true" />
+      <option name="FIELD" value="true" />
+      <option name="METHOD" value="true" />
+      <option name="CLASS" value="true" />
+      <option name="PARAMETER" value="false" />
+      <option name="REPORT_PARAMETER_FOR_PUBLIC_METHODS" value="false" />
+    </inspection_tool>
+    <inspection_tool class="UndefinedStep" enabled="false" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="UndesirableClassUsage" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="UnitMethodDeclaredWithTypeAnnotation" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="UnitMethodDefinedLikeFunction" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="UnitMethodDefinedWithEqualsSign" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="UnitMethodIsParameterless" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="Unknown filedescriptor" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="UnmatchedTag" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="UnnecessaryAnnotationParentheses" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="UnnecessaryFinalOnLocalVariable" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="UnnecessaryFinalOnParameter" enabled="false" level="WARNING" enabled_by_default="false">
+      <option name="onlyWarnOnAbstractMethods" value="false" />
+    </inspection_tool>
+    <inspection_tool class="Unregister global variable" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="Unresolved variable" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="UnresolvedMessageChannel" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="UnresolvedMessageChannelWarningInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="UnsafeVfsRecursion" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="Unused function definition" enabled="false" level="INFO" enabled_by_default="false" />
+    <inspection_tool class="Unused parameter" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="UnusedDeclaration" enabled="true" level="INFO" enabled_by_default="true">
+      <option name="ADD_MAINS_TO_ENTRIES" value="true" />
+      <option name="ADD_APPLET_TO_ENTRIES" value="true" />
+      <option name="ADD_SERVLET_TO_ENTRIES" value="true" />
+      <option name="ADD_NONJAVA_TO_ENTRIES" value="true" />
+    </inspection_tool>
+    <inspection_tool class="UnusedStepDeclaration" enabled="false" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="Use of postfix method call" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="UseJBColor" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="ValidatorConfigModelInspection" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="ValidatorModelInspection" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="VarCouldBeVal" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="VariablePatternShadow" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="VerifyFormattedMessage" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="WeakerAccess" enabled="false" level="WARNING" enabled_by_default="false">
+      <option name="SUGGEST_PACKAGE_LOCAL_FOR_MEMBERS" value="true" />
+      <option name="SUGGEST_PACKAGE_LOCAL_FOR_TOP_CLASSES" value="true" />
+      <option name="SUGGEST_PRIVATE_FOR_INNERS" value="false" />
+    </inspection_tool>
+    <inspection_tool class="WebflowConfigModelInspection" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="WebflowModelInspection" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="WebflowSetupInspection" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="Weblogic" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="WicketForgeEmptySrcAttributeInspection" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="WicketForgeHtmlIdInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="WicketForgeJavaIdInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="Wrap function body" enabled="false" level="INFO" enabled_by_default="false" />
+    <inspection_tool class="WrapFunction" enabled="false" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="WrapWord" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+    <inspection_tool class="WrongTopLevelPackage" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="WrongTopLevelPackageInspection" enabled="false" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="YARDTagsInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="unusedMerged" />
+  </profile>
+</component>
