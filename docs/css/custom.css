@@ -98,8 +98,8 @@
 }
 
 .reveal .subline {
-    margin: -0.2em 0 .4em 0;
-    line-height: 0.92;
+    margin: -0.4em 0 .4em 0;
+    line-height: 1.0;
 }
 
 /* Text links*/
@@ -262,7 +262,7 @@
     font-size: 124%;
 }
 
-.reveal .small li, .reveal div.small,.reveal span.small, .reveal .small code, .reveal .small, .reveal .small li {
+.reveal .small li, .reveal div.small,.reveal span.small, .reveal .small code, .reveal .small, .reveal .small li .small textarea {
     font-size: 86%;
 }
 

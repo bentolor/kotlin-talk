@@ -112,8 +112,8 @@ In dieser Session erleben wir live, wie es sich anfühlt der NullpointerExceptio
         <!--
           === Motivation ============================================================================
         -->
-        <section class="">
-            <h3>Warum voranschreiten <br>in der Android-Entwicklung?</h3>
+        <!--<section class="">
+            <h3>Warum voranschreiten <br>in der JVM-Entwicklung?</h3>
 
             <div class="abs handwriting right fragment"
                  style="transform: rotate(-2deg); left: 160px; top: 180px; font-size: 130%; line-height: 0.8em">
@@ -132,8 +132,16 @@ In dieser Session erleben wir live, wie es sich anfühlt der NullpointerExceptio
                     <br><strong>Kompromisse bei der Sicherheit</strong>
                     <br> <span class="decent x-small">(Raw Types / Arrays, Nullwerte)</span>
             </div>
-        </section>
+        </section>-->
 
+        <section data-background-color="#fff" data-markdown>
+            <textarea data-template >
+                ## Über den Redner
+
+                ## Über die eXXcellent
+                ![eXXcellent Team](img/exxcellent-gruppenfoto.jpg)
+            </textarea>
+        </section>
 
 
         <!--
@@ -146,7 +154,7 @@ In dieser Session erleben wir live, wie es sich anfühlt der NullpointerExceptio
                 </div>
                 <div class="fragment abs" style="right: 0; top: 620px; text-align: right">
                     <p class="large"><b>Russische Insel</b></p>
-                    <p class="decent x-small">im finnischen Golf, 32km vor Petersburg</p>
+                    <p class="x-small subline">im finnischen Golf, 32km vor Petersburg</p>
                 </div>
             </section>
 
@@ -155,7 +163,7 @@ In dieser Session erleben wir live, wie es sich anfühlt der NullpointerExceptio
                 <div style="width: 100%; text-align: right;">
                     <p>statisch typisierte<br/>
                         <b><span class="x-large">Allzweck-Sprache</span></b><br/>
-                        für JVM und Browser</p>
+                        für <strong>JVM</strong>, Browser & Native </p>
                 </div>
             </section>
 
@@ -190,7 +198,28 @@ In dieser Session erleben wir live, wie es sich anfühlt der NullpointerExceptio
                     <p class="decent subline x-small">Start: ~2010, v1.0 Feb. '16<br/>Long-term backward compatibility</p>
 
                     <p>Integrationen</p>
-                    <p class="decent subline x-small">IntelliJ, Eclipse<br> Maven, Ant, Gradle</p>
+                    <p class="decent subline x-small">IntelliJ, Eclipse, CLI<br> Maven, Ant, Gradle</p>
+                </div>
+            </section>
+
+            <section data-background="img/kotlin_logos/icon_Kotlin.svg" data-background-color="#fff" class="center">
+                <div class="right">
+                    <h2 class="large">Historie</h2>
+
+                    <p>Juli 2011</p>
+                    <p class="decent subline x-small">Offizielle Vorstellung</p>
+
+                    <p>1.0 – Februar 2016</p>
+                    <p class="decent subline x-small">Production-ready<br>Long-term stability version</p>
+
+                    <p>Mai 2017</p>
+                    <p class="decent subline x-small">Google integriert Kotlin in Android</p>
+
+                    <p>1.1 – April 2017</p>
+                    <p class="decent subline x-small">Coroutines, Type Aliases, JS, Android</p>
+
+                    <p>1.2 – November 2017</p>
+                    <p class="decent subline x-small">Multiplattform-Support</p>
                 </div>
             </section>
 
@@ -530,20 +559,21 @@ enum class Title { Herr, Frau, wertes }                </code></pre>
 
 
             <section data-verbatim>
-                <h3>Konventionen - Operatoren</h3>
-
-                <div data-markdown class="tgap">
-                    Feste Menge &amp; Reihenfolge an Operatoren (vs. Scala).  <!-- -->
-                    Diese werden über Namenskonventionen gemapped:
-                </div>
-                <div data-markdown class="tgap container left">
-                    `+` &rightarrow; `.plus()`
-
-                    `-` &rightarrow; `minus()`
-
-                    `..` &rightarrow; `.rangeTo()`
-
-                    `[x]` &rightarrow; `get(x)`
+                <h3>Operatoren</h3>
+                <p>Über Namenskonventionen. Feste Menge &amp; Präzedenz</p>
+                <div data-markdown class="small">
+                    <textarea data-template >
+                        | Operator      |              | Methode
+                        | :-------:     |:-:           | -------
+                        | `a + b`       | &rightarrow; | `a.plus(b)`
+                        | `a += b`      | &rightarrow; | `a.plusAssign(b)`
+                        | `+a`          | &rightarrow; | `a.unaryPlus()`
+                        | `++a`, `a++`  | &rightarrow; | `a.inc()`
+                        | `a..b`        | &rightarrow; | `a.rangeTo(b)`
+                        | `a[x]`        | &rightarrow; | `a.get(x)`
+                        | `!a`          | &rightarrow; | `a.not()`
+                        | …             |              | …
+                    </textarea>
                 </div>
             </section>
 
@@ -1418,6 +1448,12 @@ fun main(args: Array&lt;String&gt;) {
             <section>
                 <h2>Quellen &amp; Materalien</h2>
 
+                <!--
+
+                Android Kommentar
+
+                -->
+
                 <div class="threecol small left" data-markdown>
                     ##### Materialien für den Einstieg
                     * [*kotlinlang.org*](https://kotlinlang.org/)
@@ -1464,6 +1500,7 @@ fun main(args: Array&lt;String&gt;) {
                     [Kotlin Logo](https://resources.jetbrains.com/assets/products/kotlin/kotlin_logos.zip),
                     [Hand-written arrows](http://designercandies.net/hand-drawn-arrows-brush/)
                 </div>
+                <h2>We are hiring! <strong>exxcellent.de/karriere</strong></h2>
             </section>
 
         </section>

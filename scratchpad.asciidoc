@@ -1,0 +1,223 @@
+= Scratchpad
+
+== Tooling
+completion, navigation, Refactoring, Inspections
+
+image:docs/img/refactor-options.png[]
+
+
+
+== Java / Kotlin Interop
+
+.Misch-Betrieb
+
+Misch-Betrieb: *.java, *.kt -> *.class -> *.dex
+Bidirektionale Beziehung
+-> Graduell Hinzufügen möglich
+
+
+.Kotlin Type Konvertierung
+
+
+.Kolin vs. Java Types
+
+[cols="1m,1m"]
+|===
+|Kotlin  |Java
+
+|Any
+|java.lang.Object
+
+|Int
+|int
+
+|Int?
+|java.lang.Integer
+
+|Double
+|double
+
+|Double?
+|java.lang.Double
+
+|Array<Int>
+|Integer[]
+
+|IntArray
+|int[]
+|===
+
+
+
+.JVM Interop Features
+|===
+|Element | Beschreibung
+
+|`@JvmStatic`
+|Statische Methoden
+
+|`companion object`
+|Singleton
+
+|`@JvmField`
+|Property als Java Feld verfügbar machen
+
+|@JvmName
+|Bytecode/JVM Namen steuern
+
+|@JvmOverloads
+|Optionale Parameter ausmultiplizieren
+
+|@Throws
+|Checked exceptions Signatur deklarieren
+
+|@Nullable / @NotNull
+|`T?` vs. `T`
+|===
+
+
+.Java / Kotlin `null`-Handlung bzw. Plattform Types
+
+----
+public class Foo {
+   public String getX() { return null; }
+}
+
+val a = Foo().x;
+println(a.lenght) // NPE
+----
+
+
+.Annotationen
+JetBrains, Android, JSR-305, FindBugs, Lombok
+
+
+.Fixed
+----
+public class Foo {
+   @Nullable
+   public String getX() { return null; }
+}
+
+val a = Foo().x;
+println(a.lenght) // compiler Error
+----
+
+Praxistipp:
+
+1. NotNull programmieren und Nullable markieren.
+2. Mann kann auch für ganze Pakete Defaults markieren
+3.
+
+== Type Variance
+
+----
+    <R> Stream<R> map(Function<? super T, ? extends R> mapper);
+----
+
+.Co- und Kontravarianz
+----
+class Consumer<in T> {
+    fun consumeSomething(list: List<T>) {
+
+    }
+}
+
+class Producer<out T> {
+    fun produceSomething(): List<T> {
+        TODO()
+    }
+}
+----
+
+== Lambda Syntax
+
+----
+list.any({ i: Int -> i > 0})
+list.any() { i: Int -> i > 0}
+list.any { i: Int -> i > 0}
+list.any { i -> i > 0}
+list.any { it > 0}
+----
+
+== Konventionen
+
+.Standardbiliotheksfunktionen
+
+----
+listOf(1,2,3)
+mutableListOf(1,2,3)
+mapOf(1 to "eins", 2 to "zwei")
+----
+
+.Equality
+----
+a == b | a?.equals(b) ?: (b == null)
+a < b  | a.compareTo(b) < 0
+a >= b  | a.compareTo(b) >= 0
+a in b | b.contains(a)
+----
+
+.`rangeTo`
+----
+if (s in "abc".."def") { }
+for (i in 1..2) { }
+----
+
+.destructuring
+----
+val (a,b) = p
+
+a = p.component1()
+a = p.component2()
+----
+
+
+== Beispiel
+
+----
+enum class Color {
+    BLUE, ORANGE, RED
+}
+
+fun updateWeather(
+        celsiusDegrees: Double
+) {
+    val description: String
+    val color: Color
+    when {
+        celsiusDegrees < 0 -> {
+            description = "cold"
+            color = Color.BLUE
+        }
+        celsiusDegrees in 0..15 -> {
+            description = "mild"
+            color = Color.ORANGE
+        }
+        else -> {
+            description = "hot"
+            color = Color.RED
+        }
+    }
+}
+
+fun updateWeather1(celsiusDegrees: Double) {
+    val (description, color) =
+            when {
+                celsiusDegrees < 0 -> Pair("cold", Color.BLUE)
+                celsiusDegrees in 0..15 -> "mild" to Color.ORANGE
+                else -> "hot" to Color.RED
+            }
+}
+----
+
+
+
+== Coroutines
+
+----
+----
+
+== Multiplattform Projects
+
+== iOS / Kotlin Native
