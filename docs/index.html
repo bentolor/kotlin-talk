@@ -832,7 +832,7 @@ class KotlinClass(val jclass: JavaClass) {
                 <h1>Effizienz & Idiome</h1>
             </section>
 
-            <section data-verbatim data-transition="none">
+            <section data-verbatim data-transition="fade" data-background="#fff">
                 <!-- @formatter:off -->
                 <div data-markdown style="width: 75%; margin: 0 auto">
                     #### „Wie ist denn das Wetter?“ in Java
@@ -862,7 +862,7 @@ class KotlinClass(val jclass: JavaClass) {
                 />
             </section>
 
-            <section data-verbatim  data-transition="none">
+            <section data-verbatim  data-transition="fade" data-background="#fff">
                 <!-- @formatter:off -->
                 <div data-markdown style="width: 75%; margin: 0 auto">
                     #### ... in Kotlin
@@ -893,7 +893,7 @@ class KotlinClass(val jclass: JavaClass) {
                 <!-- @formatter:on -->
             </section>
 
-            <section data-verbatim  data-transition="none">
+            <section data-verbatim  data-transition="fade" data-background="#fff">
                 <!-- @formatter:off -->
                 <div data-markdown style="width: 75%; margin: 0 auto">
                     #### ...mit Range Check
@@ -920,7 +920,7 @@ class KotlinClass(val jclass: JavaClass) {
                 <!-- @formatter:on -->
             </section>
 
-            <section data-verbatim  data-transition="none">
+            <section data-verbatim  data-transition="fade" data-background="#fff">
                 <!-- @formatter:off -->
                 <div data-markdown style="width: 75%; margin: 0 auto">
                     #### ... mit Destructuring & `if`-Expression
@@ -942,7 +942,7 @@ class KotlinClass(val jclass: JavaClass) {
                 <!-- @formatter:on -->
             </section>
 
-            <section data-verbatim  data-transition="none">
+            <section data-verbatim  data-transition="fade" data-background="#fff">
                 <!-- @formatter:off -->
                 <div data-markdown style="width: 75%; margin: 0 auto">
                     #### ... mit Type Inference durch `Pair&lt;A,B>`
@@ -968,7 +968,7 @@ class KotlinClass(val jclass: JavaClass) {
                 />
             </section>
 
-            <section data-verbatim  data-transition="none">
+            <section data-verbatim  data-transition="none" data-background="#fff">
                 <!-- @formatter:off -->
                 <div data-markdown style="width: 80%; margin: 0 auto">
                     #### ... mit Pattern Matching über `when`
@@ -1135,7 +1135,7 @@ for (index in list.indices.filter { it % 2 == 0 }) {
             </section>
 
             <section class="center">
-                <h1>Android on speed</h1>
+                <h1><img src="img/android-robot.svg" style="height: 200px;" class="plain" alt="Google Android Logo"/> on speed</h1>
             </section>
 
 
@@ -1210,6 +1210,7 @@ create_entry.setOnClickListener { createElement() }</code></pre>
                      style="margin: -0px; padding:0; width: 64%">
             </section>
 
+            <!--<section>
             <section class="center">
                 <h1><img src="img/kotlin_logos/icon_Kotlin.svg" style="height: 74px;" class="plain" alt="Kotlin Icon"/>
                     <span class="decent">+</span>
@@ -1513,6 +1514,37 @@ fun main(args: Array&lt;String&gt;) {
 
 
             <section>
+                <h3><code>null</code>-Werte aus Java-Code</h3>
+                <p class="small">Alle Rückgabewerte aus Java-Code als <code>T?</code> zu verstehen wäre zwar richtig, aber extrem
+                    unkomfortabel. Daher besitzt Kotlin das Konzept sog. <i>Platform Types</i> <code>T!</code>.</p>
+
+                <img src="img/java-nullable.png" class="plain tgap" style="width: 540px">
+
+                <p class="small" style="margin: -12px 0">&downarrow;</p>
+
+                <div data-markdown style="width: 68%; margin: 0 auto">
+                    ```kotlin
+                    System.getenv("_PWD").length   // Potentiell NPE!
+                    ```
+                </div>
+
+                <div data-markdown style="width: 68%; margin: 48px auto" class="small">
+                    Volle Sicherheit kann man wiedererlangen durch:
+                    1. Auszeichnung mit `@Nullable` in Java -> `String?`
+                    1. Elvis Operator &amp; Co.: `System.getenv("_PWD")?.length`
+                    1. Auszeichnung eines `@Nullable` Defaults für ganze Pakete
+
+                </div>
+
+                <div class="abs handwriting"
+                     style="width: 430px;  transform: rotate(-13deg);
+                            left: 920px; top: 200px; color: #66c; font-size: 110%">
+                    Kann nicht aus Kotlin heraus erzeugt werden!
+                </div>
+            </section>
+
+
+            <section>
                 <h3>GUI &amp; <code>null</code> – Typische Konstellation</h3>
                 <div data-markdown class="bgap">
                     Werte für Initialisierung erst im Android-Callbacks bekannt …
@@ -1573,37 +1605,6 @@ fun main(args: Array&lt;String&gt;) {
                                 Wirft sprechende Exception, falls ohne
                                 Initialisierung gelesen wird!
                     </div>
-                </div>
-            </section>
-
-
-            <section>
-                <h3><code>null</code>-Werte aus Java-Code</h3>
-                <p class="small">Alle Rückgabewerte aus Java-Code als <code>T?</code> zu verstehen wäre zwar richtig, aber extrem
-                    unkomfortabel. Daher besitzt Kotlin das Konzept sog. <i>Platform Types</i> <code>T!</code>.</p>
-
-                <img src="img/java-nullable.png" class="plain tgap" style="width: 540px">
-
-                <p class="small" style="margin: -12px 0">&downarrow;</p>
-
-                <div data-markdown style="width: 68%; margin: 0 auto">
-                    ```kotlin
-                    System.getenv("_PWD").length   // Potentiell NPE!
-                    ```
-                </div>
-
-                <div data-markdown style="width: 68%; margin: 48px auto" class="small">
-                    Volle Sicherheit kann man wiedererlangen durch:
-                    1. Auszeichnung mit `@Nullable` in Java -> `String?`
-                    1. Elvis Operator &amp; Co.: `System.getenv("_PWD")?.length`
-                    1. Auszeichnung eines `@Nullable` Defaults für ganze Pakete
-
-                </div>
-
-                <div class="abs handwriting"
-                     style="width: 430px;  transform: rotate(-13deg);
-                            left: 920px; top: 200px; color: #66c; font-size: 110%">
-                    Kann nicht aus Kotlin heraus erzeugt werden!
                 </div>
             </section>
 
