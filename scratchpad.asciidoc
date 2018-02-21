@@ -9,6 +9,11 @@ image:docs/img/refactor-options.png[]
 
 == Java / Kotlin Interop
 
+                       - *Interoperabilität* Compiler:
+                            -- *Mischen von Java &amp; Kotlin-Code* problemlosem Zugriff in beide Richtungen
+
+.Platform Types
+
 .Misch-Betrieb
 
 Misch-Betrieb: *.java, *.kt -> *.class -> *.dex
@@ -212,9 +217,6 @@ fun updateWeather1(celsiusDegrees: Double) {
 
 
 == Coroutines
-
-----
-----
 
 == Multiplattform Projects
 
