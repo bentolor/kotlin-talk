@@ -172,17 +172,15 @@ a = p.component1()
 a = p.component2()
 ----
 
+== Property Delegation ?
+
 
 == Beispiel
 
 ----
-enum class Color {
-    BLUE, ORANGE, RED
-}
+enum class Color { BLUE, ORANGE, RED }
 
-fun updateWeather(
-        celsiusDegrees: Double
-) {
+fun indicateWeather(celsius: In) {
     val description: String
     val color: Color
     when {

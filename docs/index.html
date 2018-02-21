@@ -134,13 +134,25 @@ In dieser Session erleben wir live, wie es sich anfühlt der NullpointerExceptio
             </div>
         </section>-->
 
-        <section data-background-color="#fff" data-markdown>
-            <textarea data-template >
-                ## Über den Redner
-
-                ## Über die eXXcellent
-                ![eXXcellent Team](img/exxcellent-gruppenfoto.jpg)
+        <section>
+            <!--<section data-background-color="#fff" data-markdown>
+            <textarea data-template>
+                ## Über mich
+                <a href="https://twitter.com/bentolor">@bentolor</a>
             </textarea>
+            </section>-->
+
+            <section data-background-color="#fff" data-markdown>
+            <textarea data-template>
+                ### eXXcellent solutions
+                ![eXXcellent Team](img/exxcellent-gruppenfoto.jpg)<!-- .element: width="1000"  --> <br>
+                Ulm | München | Stuttgart | Darmstadt
+
+                ~150 Mitarbeiter | Java, Web & .NET - Projekte <!-- .element: class="small subline decent"  -->
+
+                *We are hiring!*
+            </textarea>
+            </section>
         </section>
 
 
@@ -165,6 +177,10 @@ In dieser Session erleben wir live, wie es sich anfühlt der NullpointerExceptio
                         <b><span class="x-large">Allzweck-Sprache</span></b><br/>
                         für <strong>JVM</strong>, Browser & Native </p>
                 </div>
+                <aside data-markdown class="notes">
+                    * Fokus: JVM
+                    * Mit Native auch iOS!
+                </aside>
             </section>
 
 
@@ -238,6 +254,10 @@ In dieser Session erleben wir live, wie es sich anfühlt der NullpointerExceptio
                      style="transform: rotate(-7deg); left: 600px; top: 230px; font-size: 200%">
                         Schneller an's Ziel!
                 </div>
+            </section>
+
+            <section class="center">
+                <h2>Hands on – Live</h2>
             </section>
 
 
@@ -531,16 +551,179 @@ enum class Title { Herr, Frau, wertes }                </code></pre>
             </section>
 
 
-            <section data-verbatim>
-                <h3>Idiome</h3>
+            <section data-verbatim class="center">
+                <h2>Kotlin Idiome</h2>
+            </section>
 
-                <!-- @formatter:off -->
-                <div data-markdown class="left" style="width: 90%; margin: 0 auto">
-                    ##### `if` ist ein Ausdruck
+            <!--<section data-verbatim class="center">
+                <div data-markdown style="width: 90%; margin: 0 auto">
+                    ### `if` ist ein Ausdruck
                     ```
                     fun isEven(i: Int) = if (i.mod(2) == 0) "gerade" else "ungerade"
                     ```
+                </div>
+            </section>-->
 
+            <section data-verbatim data-transition="none">
+                <!-- @formatter:off -->
+                <div data-markdown style="width: 75%; margin: 0 auto">
+                    #### „Wie ist denn das Wetter?“ in Java
+                    ```
+                    public class WeatherIndicator {
+                        void rateWeather(int celsius) {
+                            String status;
+                            Color color;
+                            if (celsius < 5) {
+                                status = "Saukalt!";
+                                color = Color.BLUE;
+                            } else if (celsius >= 5 && celsius <= 20) {
+                                status = "Geht so!";
+                                color = Color.ORANGE;
+                            } else {
+                                status = "Urlaub!";
+                                color = Color.RED;
+                            }
+                        }
+                    }
+                    ```
+                </div>
+                <!-- @formatter:on -->
+                <img src="img/kotlin-copypaste-convert-black.png"
+                     style="position: absolute; z-index: 1; left: 0; right: 0; margin: 0 auto; top: 200px;"
+                     class="plain fragment"
+                />
+            </section>
+
+            <section data-verbatim  data-transition="none">
+                <!-- @formatter:off -->
+                <div data-markdown style="width: 75%; margin: 0 auto">
+                    #### ... in Kotlin
+                    ```
+                    class WeatherIndicator {
+                        fun rateWeather(celsius: Int) {
+                            val status: String
+                            val color: Color
+                            if (celsius < 5) {
+                                status = "Saukalt!"
+                                color = Color.BLUE
+                            } else if (celsius >= 5 && celsius <= 20) {
+                                status = "Geht so!"
+                                color = Color.ORANGE
+                            } else {
+                                status = "Urlaub!"
+                                color = Color.RED
+                            }
+                        }
+                    }
+
+                    ```
+                </div>
+                <img src="img/refactor-to-in.png"
+                     style="position: absolute; z-index: 1; left: 0; right: 0; margin: 0 auto; top: 320px;"
+                     class="plain fragment"
+                />
+                <!-- @formatter:on -->
+            </section>
+
+            <section data-verbatim  data-transition="none">
+                <!-- @formatter:off -->
+                <div data-markdown style="width: 75%; margin: 0 auto">
+                    #### ...mit Range Check
+                    ```
+                    class WeatherIndicator {
+                        fun rateWeather(celsius: Int) {
+                            val status: String
+                            val color: Color
+                            if (celsius < 5) {
+                                status = "Saukalt!"
+                                color = Color.BLUE
+                            } else if (celsius in 5..20) {
+                                status = "Geht so!"
+                                color = Color.ORANGE
+                            } else {
+                                status = "Urlaub!"
+                                color = Color.RED
+                            }
+                        }
+                    }
+
+                    ```
+                </div>
+                <!-- @formatter:on -->
+            </section>
+
+            <section data-verbatim  data-transition="none">
+                <!-- @formatter:off -->
+                <div data-markdown style="width: 75%; margin: 0 auto">
+                    #### ... mit Destructuring & `if`-Expression
+                    ```
+                    class WeatherIndicator {
+                        fun rateWeather(celsius: Int) {
+                            val (status: String, color: Color) =
+                              if (celsius < 5) {
+                                  Pair("Saukalt!", Color.BLUE)
+                              } else if (celsius in 5..20) {
+                                  Pair("Geht so!", Color.ORANGE)
+                              } else {
+                                  Pair("Urlaub!", Color.RED)
+                              }
+                        }
+                    }
+                    ```
+                </div>
+                <!-- @formatter:on -->
+            </section>
+
+            <section data-verbatim  data-transition="none">
+                <!-- @formatter:off -->
+                <div data-markdown style="width: 75%; margin: 0 auto">
+                    #### ... mit Type Inference durch `Pair&lt;A,B>`
+                    ```
+                    class WeatherIndicator {
+                        fun rateWeather(celsius: Int) {
+                            val (status, color) =
+                              if (celsius < 5) {
+                                  Pair("Saukalt!", Color.BLUE)
+                              } else if (celsius in 5..20) {
+                                  Pair("Geht so!", Color.ORANGE)
+                              } else {
+                                  Pair("Urlaub!", Color.RED)
+                              }
+                        }
+                    }
+                    ```
+                </div>
+                <!-- @formatter:on -->
+                <img src="img/refactor-when.png"
+                     style="position: absolute; z-index: 1; left: -330px; right: 0; margin: 0 auto; top: 210px;"
+                     class="plain fragment"
+                />
+            </section>
+
+            <section data-verbatim  data-transition="none">
+                <!-- @formatter:off -->
+                <div data-markdown style="width: 80%; margin: 0 auto">
+                    #### ... mit Pattern Matching über `when`
+                    ```
+                    class WeatherIndicator {
+                        fun rateWeather(celsius: Int) {
+                           val (status, color) = when {
+                             celsius < 5 -> Pair("Saukalt!", Color.BLUE)
+                             celsius in 5..20 -> Pair("Geht so!", Color.ORANGE)
+                             else -> Pair("Urlaub!", Color.RED)
+                           }
+                        }
+                    }
+                    ```
+                </div>
+                <!-- @formatter:on -->
+            </section>
+
+
+
+            <section data-verbatim>
+                <!-- @formatter:off -->
+                <div data-markdown  style="width: 90%; margin: 0 auto">
                     ##### `with( … ) { }`: Parameter wird im Block zum `this`
                     ```
                     private fun toJSON(aha: Aha): JSONObject {
