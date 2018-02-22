@@ -1650,22 +1650,28 @@ fun main(args: Array&lt;String&gt;) {
                 <h3 style="margin: -1.2em 0"  >&amp;<br> Ausblick</h3>
             </section>
 
+            <section data-markdown class="">
+                <textarea data-template>
+                    ## Kotlin/Native (experimentell)
+
+                    ![Kotlin Targets](img/kotlin-native.png) <!-- .element: class="plain" style="width: 1040px" -->
+
+                    LLVM-basierte Kompilierung von Kotlin-Code auf Plattformen ohne VM. <!-- .element: class="x-small decent"  -->
+                </textarea>
+            </section>
+
             <section data-markdown class="left">
                 <textarea data-template>
                     ## Experimentelle Features
 
-                    #### Coroutines
+                    #### Coroutines (1.1)
                     *Sequentielle Programmierung von asynchroner Logik.* Kann `async`/`await` von C#, `channel` und `select`
                     von Go und `generator`/`yield` von C# bzw. Python nachbilden.
 
+                    #### Multiplatform Projects (1.2) <!-- .element: class="tgap" -->
+                    Erlaubt die Compilation &amp; *Wiederverwendung des selben Codes für verschiedene Zielplattformen*.
 
-                    #### Kotlin Native <!-- .element: class="tgap" -->
-                    LLVM-basierte Kompilierung von Kotlin-Code auf Plattformen ohne VM. Plattformen. Damit z.B. *iOS Anwendungen* möglich.
-
-                    Windows (x86_64), Linux (x86_64, arm32, MIPS), MacOS, iOS (arm64), Android (arm32, arm64),
-                    WebAssembly (wasm32) <!-- .element: class="small decent" -->
-
-
+                    `expect` definiert Platzhalter für Deklarationen, die mittels `actual` Plattform-spezifisch implementiert werden.
                 </textarea>
             </section>
 
@@ -1705,12 +1711,12 @@ fun main(args: Array&lt;String&gt;) {
                     - [Sprachreferenz](http://kotlinlang.org/docs/reference/)
 
                     ##### Verzeichnisse
-                    - [Awesome Kotlin](http://kotlin.link/)
+                    - [*Awesome Kotlin* `http://kotlin.link`](http://kotlin.link/)
                     - [OSS Projects &amp; Libraries](https://kotlinlang.org/docs/resources.html)
 
                     ##### Diverses
-                    - [*@kotlin*](https://twitter.com/kotlin) &amp; [*@bentolor*](https://twitter.com/bentolor)
-                    - [github.com/bentolor](https://github.com/bentolor)
+                    - [@kotlin](https://twitter.com/kotlin), [@bentolor](https://twitter.com/bentolor),
+                       [github.com/bentolor](https://github.com/bentolor)
                 </div>
 
                 <div class="threecol small left" data-markdown>
@@ -1721,9 +1727,11 @@ fun main(args: Array&lt;String&gt;) {
                     - [spek](https://github.com/jetbrains/spek) (Testing)
                     - [kovenant](https://github.com/mplatvoet/kovenant)  <!-- -->
                       (Android Promises)
-                    - [kotlinx.support](https://github.com/Kotlin/kotlinx.support)  <!-- -->
-                       (JDK7/8 features)
-                    - [Klaxon](https://github.com/cbeust/klaxon) (JSON)
+
+                    ##### Kotlin-optimierte Addons
+                    - [SparkJava](http://sparkjava.com/)
+                    - [jooby](http://jooby.org/)
+
                 </div>
 
                 <div style="clear: left;"></div>
