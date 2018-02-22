@@ -111,13 +111,15 @@ In dieser Session erleben wir live, wie es sich anfühlt der NullpointerExceptio
 
         <section data-background-color="#fff" data-markdown>
             <textarea data-template>
-                ### eXXcellent solutions
+                ### eXXcellent solutions gmbh
                 ![eXXcellent Team](img/exxcellent-gruppenfoto.jpg)<!-- .element: width="1000"  --> <br>
+                _„Digitalisierung von Geschäftsprozessen“ – aller Art/Branchen_
+
                 Ulm | München | Stuttgart | Darmstadt
 
-                ~150 Mitarbeiter | Java, Web & .NET - Projekte <!-- .element: class="small subline decent"  -->
+                ~150 Mitarbeiter | Java, Web & (.NET) - Projekte <!-- .element: class="small subline decent"  -->
 
-                *We are hiring!*
+                seit 10/2017 hier in Darmstadt <!-- .element: class="x-small subline decent"  -->
             </textarea>
         </section>
 
@@ -194,11 +196,11 @@ In dieser Session erleben wir live, wie es sich anfühlt der NullpointerExceptio
                     <p>1.0 – Februar 2016</p>
                     <p class="decent subline x-small">Production-ready<br>Long-term stability version</p>
 
-                    <p>Mai 2017</p>
-                    <p class="decent subline x-small">Google integriert Kotlin in Android</p>
-
                     <p>1.1 – April 2017</p>
                     <p class="decent subline x-small">Coroutines, Type Aliases, JS, Android</p>
+
+                    <p>Mai 2017</p>
+                    <p class="decent subline x-small">Google integriert Kotlin in Android</p>
 
                     <p>1.2 – November 2017</p>
                     <p class="decent subline x-small">Multiplattform-Support</p>
@@ -322,7 +324,7 @@ enum class Title { Herr, Frau, wertes }                </code></pre>
                 <h3 class="tgapxl">Werte-Container</h3>
                 <div data-markdown class="container decent small" style="padding-top: 1px;">
                     - Um Methoden erweiterbar
-                    - Vererbung ab Kotlin 1.1
+                    - unterstützt Basisklassen seit Kotlin 1.1
                 </div>
                 <div data-markdown class="tgapxl decent" style="clear: left;">
                     ###### Kotlin übernimmt
@@ -384,7 +386,7 @@ enum class Title { Herr, Frau, wertes }                </code></pre>
     this.name = name;
     this.zeit = zeit;
     this.title = title;
-  }></code></pre>
+  }</code></pre>
                 </div>
                 <div class="threecol">
                     <pre class="xx-small"><code>  public Gast(String string, Date date,
@@ -490,8 +492,8 @@ enum class Title { Herr, Frau, wertes }                </code></pre>
                     <br>Syntactic Sugar</p>
                     <p class="tgap"><code>listOf(…)</code>, <code>repeat(3){…}</code>,
                     <br><code>with(x){…}</code>, <code>x.apply{…}</code>, …</p>
-                    <p class="tgap"><code>public</code> ist Standard
-                    <br>kein <code>new</code>; <code>;</code> optional
+                    <p class="tgap"><code>public</code> sind Default
+                    <br>kein <code>new</code> – <code>;</code> optional
                     <br>Operatoren &amp; Dekomposition über Namen</p>
                 </div>
                 <div class="container right abs emphasize"
@@ -529,8 +531,12 @@ enum class Title { Herr, Frau, wertes }                </code></pre>
 
                     <p class="tgap"><strong>Klassen &amp; Methoden sind <code>final</code> by Default</strong></p>
                     <!-- <p class="decent lgap small">Frameworks sollten sich daher als Mantra</p> -->
-                    <pre style="width: 600px; margin: 0 60px"><code class="kotlin">open class ExtendableClass {
+                    <pre style="width: 700px; margin: 0 60px"><code class="kotlin">open class ExtendableClass {
     open fun overridableMethod() { … }
+}
+
+class Derived: ExtendableClass() {
+    override fun overridableMethod() { … }
 }</code></pre>
 
                 </div>
@@ -545,14 +551,11 @@ enum class Title { Herr, Frau, wertes }                </code></pre>
             <section data-background-video="img/atomic-bomb.mp4"
                      data-state="speedupvideo">
                 <h2 style="color: #fff">The <br>billion-dollar <br>mistake</h2>
+                <div style="text-align: right; color: #aaa; margin: -36px 370px"><i>Tony Hoare</i> </div>
 
                 <div style="margin-top: 400px; background-color: rgba(0,0,0,.5); padding: .2em" class="fragment">
                     <code>null</code> <span style="color:white">und seine Folgen</span>
                 </div>
-            </section>
-
-            <section class="center">
-                <h2>Hands on – Live</h2>
             </section>
 
 
@@ -583,6 +586,11 @@ enum class Title { Herr, Frau, wertes }                </code></pre>
                     <p class="decent x-small">An den Schnittstellen baut Kotlin
                         Prüfungen &amp; <code>@NotNull</code> Annotationen ein.</p>
                 </div>
+            </section>
+
+
+            <section class="center">
+                <h2>Hands on – Live</h2>
             </section>
 
 
@@ -721,15 +729,15 @@ class KotlinClass(val jclass: JavaClass) {
                 <div data-markdown class="small">
                     ### Kotlin vs. Java Types
 
-                    |Kotlin  |Java
-                    | --:    | --
-                    |`Any`    |`java.lang.Object`
-                    |`Int`    |`int`
-                    |`Int?`   |`java.lang.Integer`
-                    |`Double` |`double`
-                    |`Double?`|`java.lang.Double`
-                    |`Array&lt;Int&gt;`|`Integer[]`
-                    |`IntArray` |`int[]`
+                    |Kotlin  | &rightarrow; |Java
+                    | --:    | -- | --
+                    |`Any`   | |`java.lang.Object`
+                    |`Int`   | |`int`
+                    |`Int?`  | |`java.lang.Integer`
+                    |`Double`| |`double`
+                    |`Double?`| |`java.lang.Double`
+                    |`Array&lt;Int&gt;` | | `Integer[]`
+                    |`IntArray` | | `int[]`
                 </div>
             </section>
 
@@ -1020,6 +1028,27 @@ class KotlinClass(val jclass: JavaClass) {
                         }
                     }
                     ```
+                </div>
+                <!-- @formatter:on -->
+            </section>
+
+            <section data-verbatim  data-transition="none" data-background="#fff">
+                <!-- @formatter:off -->
+                <div data-markdown style="width: 80%; margin: 0 auto">
+                    #### ... mit Standbard-Bibliotheks Extension
+                    ```kotlin
+                    class WeatherIndicatorKt {
+                        fun rateWeather(celsius: Int) {
+                           val (status, color) = when {
+                             celsius < 5 -> "Saukalt!" to Color.BLUE
+                             celsius in 5..20 ->  "Geht so!" to Color.ORANGE
+                             else -> "Urlaub!" to Color.RED
+                           }
+                        }
+                    }
+                    ```
+
+                    `fun &lt;A, B> A.to(that: B): Pair&lt;A, B> = Pair(this, that)`
                 </div>
                 <!-- @formatter:on -->
             </section>
@@ -1338,7 +1367,7 @@ fun main(args: Array&lt;String&gt;) {
                 { it % 2 == 0 }
             )
     val strings = listOf("2", "7", "8")
-    println(strings.filter(c::strToBool))
+    println(strings.map(c::strToBool))
 }</code></pre>
                 </div>
 
@@ -1414,10 +1443,10 @@ fun main(args: Array&lt;String&gt;) {
             </section>
 
 
-            <section data-verbatim>
+            <section data-verbatim class="container left">
                 <!-- @formatter:off -->
-                <div data-markdown  style="width: 90%; margin: 0 auto">
-                    ##### `with( … ) { }`: Parameter wird im Block zum `this`
+                <div data-markdown  style="width: 64%; margin: 0 auto">
+                    ##### `with(…) { }`: Parameter wird im Block zum `this`
                     ```
                     private fun toJSON(aha: Aha): JSONObject {
                         with(JSONObject()) {
@@ -1428,7 +1457,10 @@ fun main(args: Array&lt;String&gt;) {
                         }
                     }
                     ```
-                    Varianten: `apply()`, `let()` und `use()` als `try-with`-Equivalent
+
+                    ##### *Varianten* 
+                    `apply()`, `let()` und    <!-- -->
+                    `use()` als try-with–Equivalent
                 </div>
                 <!-- @formatter:on -->
             </section>
