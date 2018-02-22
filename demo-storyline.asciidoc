@@ -10,7 +10,7 @@
 == Hallo Welt
 
 - main <tab>
-- println ("Hello World!")
+- println ("Hallo Welt!")
 
 [code]
 ----
@@ -18,7 +18,7 @@ fun main(args: Array<String>) {
     println("Hallo Welt!")
 }
 ----
-- Ctrl-Shift-F10
+- Shift-F10
 
 ****
 - Top-Level functions
@@ -45,6 +45,13 @@ data class Gast(val name: String, var zeit: Date = Date(), val title: Title?)
 enum class Title { Herr, Frau, wertes }
 ----
 
+1. String interpolation
+2. `if`-Expression
+3. Enum & Data Class
+4. String interpolation erweitern, `println()`
+
+
+- Alt-Shift-F10 - Configure run
 
 ****
 - Prägnanz: Kein Semikolon
@@ -55,39 +62,61 @@ enum class Title { Herr, Frau, wertes }
 - ggf. `Nullify?`
 ****
 
+
+<<<
 == Hello Null
 
 [code]
 ----
-class HelloNull {
-    var nullable: String? = null
-
+class Greeter(val s: String) {
     fun doHello() {
-
+        println(toUp())
     }
+
+    fun toUp(): String = s.toUpperCase()
 }
 
 fun main(args: Array<String>) {
-    HelloNull().doHello()
+    Greeter("Leute!").doHello()
+    Greeter(null).doHello()
 }
 ----
 
+1. `Greeter(null).doHello()` und `String?`
+2. `!!`
+3. `fun toUp(): String? = s?.toUpperCase()`
+4. `fun toUp(): String = s?.toUpperCase() ?: "NULL"`
+5. Smart Cast
+```
+    fun toUp(): String {
+        return if (s != null) {
+            s.toUpperCase()
+        } else {
+            "null"
+        }
+    }
+```
+
 <<<<
-.Ausgebaut:
+== Hello Null mit Java
+
+1. Java Klasse:
+```
+public class JavaClass {
+    public String strValue() {
+        return "Welt";
+    }
+}
+```
+5. `String?` -> `String`,   +
+   `null` -> `JavaClass.strValue()`
+6. Klasse null returned lassen
+
+
+.Null Ausgebaut:
 
 [code]
 ----
-class HelloNull(val nullable: String?) {
-
-    fun doHello() {
-//        println(toUpper1())
-        println(toUpper2())
-        println(toUpper3())
-//        println(toUpper4())
-        println(toUpper5())
-        println(javaString())
-    }
-
     fun toUpper1(): String = nullable!!.toUpperCase()
     fun toUpper2(): String? = nullable?.toUpperCase()
     fun toUpper3(): String = nullable?.toUpperCase() ?: "NULL"
@@ -100,12 +129,48 @@ class HelloNull(val nullable: String?) {
         }
     }
     fun javaString(): String = System.getenv("PWD")
+----
 
+<<<<
+== Idiome
+
+.Ausgang
+[code]
+----
+public class WeatherIndicator {
+    void rateWeather(int celsius) {
+        String status;
+        Color color;
+        if (celsius < 5) {
+            status = "Saukalt!";
+            color = Color.BLUE;
+        } else if (celsius >= 5 && celsius <= 20) {
+            status = "Geht so!";
+            color = Color.ORANGE;
+        } else {
+            status = "Urlaub!";
+            color = Color.RED;
+        }
+    }
+
+    enum Color {BLUE, ORANGE, RED}
 }
+----
 
-fun main(args: Array<String>) {
-    HelloNull("Foo").doHello()
-    HelloNull(null).doHello()
+.Ergebnis
+[code]
+----
+class WeatherIndicatorKt {
+    fun rateWeather(celsius: Int) {
+        val (status, color) =
+            when {
+                celsius < 5 -> Pair("Saukalt!", Color.BLUE)
+                celsius in 5..20 -> Pair("Geht so!", Color.ORANGE)
+                else -> Pair("Urlaub!", Color.RED)
+            }
+    }
+
+    enum class Color { BLUE, ORANGE, RED }
 }
 ----
 

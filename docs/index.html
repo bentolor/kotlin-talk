@@ -551,6 +551,10 @@ enum class Title { Herr, Frau, wertes }                </code></pre>
                 </div>
             </section>
 
+            <section class="center">
+                <h2>Hands on – Live</h2>
+            </section>
+
 
             <section>
                 <h2>Nullwert-Sicherheit</h2>
@@ -712,6 +716,55 @@ class KotlinClass(val jclass: JavaClass) {
                 </div>
             </section>
 
+
+            <section>
+                <div data-markdown class="small">
+                    ### Kotlin vs. Java Types
+
+                    |Kotlin  |Java
+                    | --:    | --
+                    |`Any`    |`java.lang.Object`
+                    |`Int`    |`int`
+                    |`Int?`   |`java.lang.Integer`
+                    |`Double` |`double`
+                    |`Double?`|`java.lang.Double`
+                    |`Array&lt;Int&gt;`|`Integer[]`
+                    |`IntArray` |`int[]`
+                </div>
+            </section>
+
+
+            <section>
+                <h3><code>null</code>-Werte aus Java-Code</h3>
+                <p class="small">Alle Rückgabewerte aus Java-Code als <code>T?</code> zu verstehen wäre zwar richtig, aber extrem
+                    unkomfortabel. Daher besitzt Kotlin das Konzept sog. <i>Platform Types</i> <code>T!</code>.</p>
+
+                <img src="img/java-nullable.png" class="plain tgap" style="width: 540px">
+
+                <p class="small" style="margin: -12px 0">&downarrow;</p>
+
+                <div data-markdown style="width: 68%; margin: 0 auto">
+                    ```kotlin
+                    System.getenv("_PWD").length   // Potentiell NPE!
+                    ```
+                </div>
+
+                <div data-markdown style="width: 68%; margin: 48px auto" class="small">
+                    Volle Sicherheit kann man wiedererlangen durch:
+                    1. Auszeichnung mit `@Nullable` in Java -> `String?`
+                    1. Elvis Operator &amp; Co.: `System.getenv("_PWD")?.length`
+                    1. Auszeichnung eines `@Nullable` Defaults für ganze Pakete
+
+                </div>
+
+                <div class="abs handwriting"
+                     style="width: 430px;  transform: rotate(-13deg);
+                            left: 920px; top: 200px; color: #66c; font-size: 110%">
+                    Kann nicht aus Kotlin heraus erzeugt werden!
+                </div>
+            </section>
+
+
             <section class="container left">
                 <div style="margin: 0 auto; width: 76%;">
                     <div data-markdown>
@@ -728,22 +781,6 @@ class KotlinClass(val jclass: JavaClass) {
 
 
                     </div>
-                </div>
-            </section>
-
-            <section>
-                <div data-markdown class="small">
-                    ### Kotlin vs. Java Types
-
-                    |Kotlin  |Java
-                    | --:    | --
-                    |`Any`    |`java.lang.Object`
-                    |`Int`    |`int`
-                    |`Int?`   |`java.lang.Integer`
-                    |`Double` |`double`
-                    |`Double?`|`java.lang.Double`
-                    |`Array&lt;Int&gt;`|`Integer[]`
-                    |`IntArray` |`int[]`
                 </div>
             </section>
 
@@ -1509,37 +1546,6 @@ fun main(args: Array&lt;String&gt;) {
                         | `!a`          | &rightarrow; | `a.not()`
                         | …             |   | …
                     </textarea>
-                </div>
-            </section>
-
-
-            <section>
-                <h3><code>null</code>-Werte aus Java-Code</h3>
-                <p class="small">Alle Rückgabewerte aus Java-Code als <code>T?</code> zu verstehen wäre zwar richtig, aber extrem
-                    unkomfortabel. Daher besitzt Kotlin das Konzept sog. <i>Platform Types</i> <code>T!</code>.</p>
-
-                <img src="img/java-nullable.png" class="plain tgap" style="width: 540px">
-
-                <p class="small" style="margin: -12px 0">&downarrow;</p>
-
-                <div data-markdown style="width: 68%; margin: 0 auto">
-                    ```kotlin
-                    System.getenv("_PWD").length   // Potentiell NPE!
-                    ```
-                </div>
-
-                <div data-markdown style="width: 68%; margin: 48px auto" class="small">
-                    Volle Sicherheit kann man wiedererlangen durch:
-                    1. Auszeichnung mit `@Nullable` in Java -> `String?`
-                    1. Elvis Operator &amp; Co.: `System.getenv("_PWD")?.length`
-                    1. Auszeichnung eines `@Nullable` Defaults für ganze Pakete
-
-                </div>
-
-                <div class="abs handwriting"
-                     style="width: 430px;  transform: rotate(-13deg);
-                            left: 920px; top: 200px; color: #66c; font-size: 110%">
-                    Kann nicht aus Kotlin heraus erzeugt werden!
                 </div>
             </section>
 
