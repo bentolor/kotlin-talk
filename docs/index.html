@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>Java++: Effiziente & sichere JVM-Entwicklung mit Kotlin</title>
+    <title>Kotlin ist auch eine Insel: Effiziente & sichere JVM-Entwicklung mit Kotlin</title>
     <meta name="description"
           content="Kotlin ist eine innovative, freie und statisch typisierte Programmiersprache die in JVM Bytecode, Javascript und native Binaries compiliert. Auf ihrer Heimatplattform, der JVM, verfolgt Kotlin das Ziel vollständige Java-kompatibel zu bleiben und gleichzeitig sicherer und präziser zu sein. Die ausdrucksstarke und dennoch gut lesbaren Syntax mit funktionalen Features verspricht weniger Boilerplate Code bei zugleich fehlerärmeren Entwicklung. Ausgerichtet auf den Unternehmenseinsatz hat für Kotlin neben der exzellenten Interoperabilität mit Java stets auch die gute Verständlichkeit, schnelle Compilierzeiten und eine hervorragende Tooling-Unterstützungen hohe Priorität.
 
@@ -12,28 +12,18 @@ JetBrains war von Anfang an stets bemüht Kotlin als ein offenes, unabhängiges 
 
 In dieser Session erleben wir live, wie es sich anfühlt der NullpointerException auf Nimmerwiedersehen zu sagen und sie für Entwicklung gegen funktionale Features, Dataclasses und Extension-Methods einzutauschen. Codebeispiele helfen beim Kennenlernen der Sprache und vermitteln lebendige Eindrücke. Im Fortgeschrittenen Teil der Session blicken wir z.B. auf die Higher-order Functions und der Möglichkeit zur Gestaltung typsicherer DSLs mittels Empfängerobjekten und welche Verbindungen sich hier mit Gradle ergeben. Ein Aus- und Rückblick auf die letzten Neuerungen wie z.B. der Möglichkeit zu nativen iOS Anwendungen und Multiplattform-Projekten rundet das Ganze ab.">
 
-    <link rel="stylesheet" href="css/reveal.css">
-    <link rel="stylesheet" href="css/theme/white.css">
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/white.css">
 
     <!-- Theme used for syntax highlighting of code -->
     <link rel="stylesheet" href="lib/css/solarized-light.css">
 
     <!-- Custom, overriding CSS -->
     <link rel="stylesheet" href="css/custom.css">
-
-    <!-- Printing and PDF exports -->
-    <script>
-        var link = document.createElement('link');
-        link.rel = 'stylesheet';
-        link.type = 'text/css';
-        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
-        document.getElementsByTagName('head')[0].appendChild(link);
-    </script>
 </head>
 <body>
-<img src="img/eXXcellent%20logo-transparent.png" id="exxcellent-logo"
-     alt="eXXcellent solutions GmbH Logo"
-/>
+<!-- <img src="img/logo.png" id="title-logo" alt=""/> -->
 
 <div class="reveal">
     <div class="slides">
@@ -43,26 +33,26 @@ In dieser Session erleben wir live, wie es sich anfühlt der NullpointerExceptio
         -->
 
         <section data-background-color="#fff">
-            <img data-src="img/eXXcellent%20logo-transparent.png"
+<!--             <img data-src="img/logo-transparent.png"
                  style="width: 320px; position: absolute; top: 0; left: 0;"
-                 class="plain" alt="eXXcellent solutions GmbH Logo"
+                 class="plain" alt=""
             />
-
+ -->
             <div style="text-align: right;">
-                <h2 style="margin: 360px 0px 0 0; font-size: 1.9em; text-transform: none">
-                    <span class="emphasize">Java++</span>
-                    : Effiziente & sichere JVM-Entwicklung
-                      mit <img data-src="img/kotlin_logos/logo_Kotlin.svg"
+                <h2 style="margin: 360px 60px 0; font-size: 1.9em; text-transform: none; padding:0">
+                    <img data-src="img/kotlin_logos/logo_Kotlin.svg"
                          style="width: 280px; "
-                         class="plain" alt="Kotlin"/>
+                         class="plain" alt="Kotlin"/> <br/>  ist  auch nur eine 
+                         <span class="emphasize">Insel!</span>
                 </h2>
+                <h4 style="margin: 0.2em 60px; padding:0; font-size: 0.9em; color:#aaa">Effiziente & sichere JVM-Entwicklung mit Kotlin</h4>
             </div>
 
             <div id="version">
-                2018-02-22
+                2022-06-28
             </div>
 
-            <div class="profile" style="position: absolute; top: 0; left: 900px;">
+            <div class="profile" style="position: absolute; top: 0; left: 50px;">
                 <div class="profile-sidebar">
                     <div class="profile-userpic">
                         <img data-src="img/BenjaminSchmid.jpg" class="img-responsive" alt="">
@@ -82,14 +72,14 @@ In dieser Session erleben wir live, wie es sich anfühlt der NullpointerExceptio
             </div>
 
             <div id="rightsection">
-                <code>?</code> for help
-            </div>
+<!--                 <code>?</code> for help
+ -->            </div>
 
             <div id="licence">
                 <!--suppress HtmlUnknownAttribute -->
                 <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/InteractiveResource"
                       property="dct:title" rel="dct:type">
-                    Java++: Effiziente & sichere JVM-Entwicklung mit Kotlin
+                    Kotlin ist auch eine Insel: Effiziente & sichere JVM-Entwicklung mit Kotlin
                 </span>
                 by
                 <a xmlns:cc="http://creativecommons.org/ns#" href="https://twitter.com/bentolor"
@@ -100,11 +90,6 @@ In dieser Session erleben wir live, wie es sich anfühlt der NullpointerExceptio
                 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
                     Creative Commons License (BY-NC-SA/4.0)
                 </a>.
-                <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
-                    <img alt="Creative Commons Lizenzvertrag"
-                         src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png"/>
-                </a>
-
             </div>
         </section>
 
@@ -1788,8 +1773,7 @@ fun main(args: Array&lt;String&gt;) {
     </div>
 </div>
 
-<script src="lib/js/head.min.js"></script>
-<script src="js/reveal.js"></script>
+<script src="dist/reveal.js"></script>
 
 <!-- hide "verbatim" sections if URL contains "terse"-Keyword -->
 <script>
@@ -1803,6 +1787,11 @@ fun main(args: Array&lt;String&gt;) {
     }
 </script>
 
+<script src="dist/reveal.js"></script>
+<script src="plugin/notes/notes.js"></script>
+<script src="plugin/markdown/markdown.js"></script>
+<script src="plugin/highlight/highlight.js"></script>
+<script src="plugin/zoom/zoom.js"></script>
 <script>
     // More info https://github.com/hakimel/reveal.js#configuration
     Reveal.initialize({
@@ -1819,19 +1808,7 @@ fun main(args: Array&lt;String&gt;) {
         center: false,
         parallaxBackgroundImage: 'img/kotlin-island-map-light.png', // 'http://jamescroft.co.uk/wp-content/uploads/2015/01/217-L6YVU1.jpg',
         parallaxBackgroundSize: '4177px 2118px',
-
-        // More info https://github.com/hakimel/reveal.js#dependencies
-        dependencies: [
-            {src: 'plugin/markdown/marked.js'},
-            {src: 'plugin/markdown/markdown.js'},
-            {src: 'plugin/notes/notes.js', async: true},
-            {
-                src: 'plugin/highlight/highlight.js', async: true, callback: function () {
-                hljs.initHighlightingOnLoad();
-            }
-            },
-            {src: 'plugin/zoom-js/zoom.js', async: true}  // Zoom in and out with Alt+click
-        ]
+        plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom ]
     });
 </script>
 
