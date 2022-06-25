@@ -119,8 +119,8 @@
     font-size: 42px;
 }
 
-.reveal .decent {
-    color: #666;
+.reveal .decent, .reveal .decent strong {
+    color: #999;
 }
 
 .reveal strong, .reveal h1, .reveal h2 {
@@ -283,8 +283,10 @@
     width: 100%; margin: 0;
 }
 .reveal .xx-small code {
-    font-size: 50%;
     padding: 10px
+}
+.reveal .xx-small, .reveal .xx-small code  {
+    font-size: 50%;
 }
 
 
@@ -316,6 +318,10 @@
 /* Top & bottom gaps */
 .reveal .tgap {
     margin-top: .8em;
+}
+
+.reveal I {
+    font-style: italic;
 }
 
 .reveal .tgapxl {

@@ -55,7 +55,7 @@ In dieser Session erleben wir live, wie es sich anfühlt der NullpointerExceptio
             <div class="profile" style="position: absolute; top: 0; right: 50px;">
                 <div class="profile-sidebar">
                     <div class="profile-userpic">
-                        <img data-src="img/BenjaminSchmid.jpg" class="img-responsive" alt="">
+                        <img data-src="img/bentolor-avatar.png" class="img-responsive" alt="">
                     </div>
                     <div class="profile-usertitle">
                         <div class="profile-usertitle-name">
@@ -128,14 +128,18 @@ In dieser Session erleben wir live, wie es sich anfühlt der NullpointerExceptio
             <section data-background="img/kotlin_logos/icon_Kotlin.svg" data-background-color="#fff" class="center">
                 <div style="width: 100%; text-align: right;">
                     <p>statisch typisierte<br/>
-                        <b><span class="x-large">Allzweck-Sprache</span></b><br/>
-                        für <strong>JVM</strong>, Browser & Native </p>
+                        <b><span class="x-large">Allzweck-<br/>Sprache</span></b> für <ul>
+                            <li><strong>JVM</strong></li> 
+                            <li><strong>Javascript</strong></li>
+                            <li><strong>Native</strong> (LLVM)</li>
+                            </ul></p>
                 </div>
                 <aside data-markdown class="notes">
                     * Fokus: JVM
                     * Mit Native auch iOS!
                 </aside>
             </section>
+
 
 
             <section data-background="img/kotlin_logos/icon_Kotlin.svg" data-background-color="#fff" class="center">
@@ -160,15 +164,15 @@ In dieser Session erleben wir live, wie es sich anfühlt der NullpointerExceptio
                     <p>Freie Software</p>
                     <p class="decent subline x-small">APL 2.0 – IDE, compiler, libs, build tools</p>
 
-                    <p>backed by JetBrains</p>
-                    <p class="decent subline x-small">20 Vollzeit & Community<br/>
-                        „dogfooding“: 0,5 Mio. LOC</p>
-
-                    <p>Stabil</p>
+                    <p>Stabil &amp; LTS</p>
                     <p class="decent subline x-small">Start: ~2010, v1.0 Feb. '16<br/>Long-term backward compatibility</p>
 
+                    <p>JetBrains (&amp; Google) </p>
+                    <p class="decent subline x-small">20+ Vollzeit & Community<br/>
+                        „dogfooding“ &amp; Android</p>
+
                     <p>Integrationen</p>
-                    <p class="decent subline x-small">IntelliJ, Eclipse, CLI<br> Maven, Ant, Gradle</p>
+                    <p class="decent subline x-small">IntelliJ, Android Studio, Eclipse,<br> Maven, Ant, Gradle, CLI</p>
                 </div>
             </section>
 
@@ -176,21 +180,40 @@ In dieser Session erleben wir live, wie es sich anfühlt der NullpointerExceptio
                 <div class="right">
                     <h2 class="large">Historie</h2>
 
-                    <p>Juli 2011</p>
-                    <p class="decent subline x-small">Offizielle Vorstellung</p>
+                    <div style="font-size: 70%">
+<!--                         <p>Juli 2011</p>
+                        <p class="decent subline x-small">Offizielle Vorstellung</p>
+ -->
+                        <p><span class="decent">Februar 2016 – </span>1.0</p>
+                        <p class="decent subline x-small">Production-ready, LTS version</p>
 
-                    <p>1.0 – Februar 2016</p>
-                    <p class="decent subline x-small">Production-ready<br>Long-term stability version</p>
+                        <p><span class="decent">April 2017 – </span>1.1</p>
+                        <p class="decent subline x-small">Coroutines, Type Aliases, JS, Android</p>
 
-                    <p>1.1 – April 2017</p>
-                    <p class="decent subline x-small">Coroutines, Type Aliases, JS, Android</p>
+                        <p><span class="decent">Mai 2017  – </span>Android</p>
+                        <p class="decent subline x-small">Google integriert Kotlin in Android</p>
 
-                    <p>Mai 2017</p>
-                    <p class="decent subline x-small">Google integriert Kotlin in Android</p>
+                        <p><span class="decent">November 2017 – </span>1.2</p>
+                        <p class="decent subline x-small">Multiplattform-Support</p>
 
-                    <p>1.2 – November 2017</p>
-                    <p class="decent subline x-small">Multiplattform-Support</p>
+                        <p><span class="decent">November 2018 – </span>1.3</p>
+                        <p class="decent subline x-small">Contracts, Unsigneds, Inline Classes</p>
+
+                        <p><span class="decent">August 2020 – </span>1.4</p>
+                        <p class="decent subline x-small">SAM conversions, API mode</p>
+
+                        <p><span class="decent">Mai 2021 – </span>1.5</p>
+                        <p class="decent subline x-small">JVM Records, Sealed/Inline Classes</p>
+
+                        <p><span class="decent">November 2021 – </span>1.6</p>
+                        <p class="decent subline x-small">type inference &amp; coroutines improvements</p>
+
+                        <p><span class="decent">Juni 2022 – </span>1.7</p>
+                        <p class="decent subline x-small">K2 Compiler, Builder Inference</p>
+                    </div>
+
                 </div>
+
             </section>
 
         </section>
@@ -204,14 +227,15 @@ In dieser Session erleben wir live, wie es sich anfühlt der NullpointerExceptio
                 <h1>Prägnanz &amp; Lesbarkeit</h1>
                 <h2 class="handwriting"></h2>
 
-                <div class="abs handwriting"
+                <div class="abs handwriting fragment"
                      style="transform: rotate(-7deg); left: 600px; top: 230px; font-size: 200%">
                         Schneller an's Ziel!
                 </div>
             </section>
 
-            <section class="center">
-                <h2>Hands on – Live</h2>
+            <section class="">
+                <h5>Hands on: <a href="https://play.kotlinlang.org/">play.kotlinlang.org</a></h5>
+                 <iframe data-src="https://play.kotlinlang.org/" width="1280" height="620"></iframe>
             </section>
 
 
@@ -231,7 +255,7 @@ data class Gast(val name: String,
                 var zeit: Date = Date(),
                 val title: Title?)
 enum class Title { Herr, Frau, wertes }                </code></pre>
-                <div class="abs emphasize" style="top: 126px; left: 964px; width: 30%">
+                <div class="abs emphasize" style="top: 110px; left: 964px; width: 30%">
                     <p style="text-align: left; line-height: 1em; font-size: 82%">
                         <span class="fragment">&leftarrow; Optional semicolons<br></span>
                         <br>
@@ -289,7 +313,9 @@ enum class Title { Herr, Frau, wertes }                </code></pre>
                     <div style="clear: left"/>
                 </div>
 
-                <p><strong>Typangaben</strong> üblicherweise <strong>nur an Schnittstellen</strong> erforderlich</p>
+                <div class="fragment">
+                    <p><strong>Typangaben</strong> üblicherweise <strong>nur an Schnittstellen</strong> erforderlich</p>
+                </div>
             </section>
 
 
@@ -307,26 +333,28 @@ enum class Title { Herr, Frau, wertes }                </code></pre>
                     ```
                 </div>
                 <!-- @formatter:on -->
-                <h3 class="tgapxl">Werte-Container</h3>
                 <div data-markdown class="container decent small" style="padding-top: 1px;">
+                    ##### Werte-Container
                     - Um Methoden erweiterbar
-                    - unterstützt Basisklassen seit Kotlin 1.1
+                    - unterstützt Basisklassen
                 </div>
-                <div data-markdown class="tgapxl decent" style="clear: left;">
-                    ###### Kotlin übernimmt
-                </div>
-                <div class="container decent small">
-                    <div data-markdown style="float: left">
-                        - Getter &amp; Setter
-                        - `equals()`
+                <div class="fragment">
+                    <div data-markdown class="tgapxl decent" style="clear: left;">
+                        ###### Kotlin übernimmt
                     </div>
-                    <div data-markdown style="float: left">
-                        - `hashCode()`
-                        - `toString()`
-                    </div>
-                    <div data-markdown style="float: left">
-                        - `copy()` für Varianten
-                        - `componentN()` für Destructuring
+                    <div class="container decent small">
+                        <div data-markdown style="float: left">
+                            - Getter &amp; Setter
+                            - `equals()`
+                        </div>
+                        <div data-markdown style="float: left">
+                            - `hashCode()`
+                            - `toString()`
+                        </div>
+                        <div data-markdown style="float: left">
+                            - `copy()` für Varianten
+                            - `componentN()` für Destructuring
+                        </div>
                     </div>
                 </div>
             </section>
@@ -507,27 +535,32 @@ enum class Title { Herr, Frau, wertes }                </code></pre>
             <section>
                 <h2>First-class immutables</h2>
                 <div class="left container">
-                    <p class="tgap"><strong>Nur-lesbare Variablen</strong>
+                    <p class="tgap fragment"><strong>Nur-lesbare Variablen</strong>
                         aufwandsfrei durch <code>val</code> statt <code>var</code></p>
 
-                    <p class="tgap"><strong>Standard-Collection Interfaces</strong> (<code>List</code>, <code>Set</code>, …) sind read-only</p>
-                    <p class="decent lgap small">
-                        Zum ändern muss man z.B. <code>MutableList</code> statt <code>List nutzen</code>
-                    </p>
+                    <div class="fragment">
+                        <p class="tgap"><strong>Standard-Collection Interfaces</strong> (<code>List</code>, <code>Set</code>, …) sind read-only
+                            <span class="decent small"><br/>
+                                Zum ändern muss man z.B. <code>MutableList</code> statt <code>List</code> nutzen
+                            </span>
+                        </p>
+                    </div>
 
-                    <p class="tgap"><strong>Klassen &amp; Methoden sind <code>final</code> by Default</strong></p>
-                    <!-- <p class="decent lgap small">Frameworks sollten sich daher als Mantra</p> -->
-                    <pre style="width: 700px; margin: 0 60px"><code class="kotlin">open class ExtendableClass {
-    open fun overridableMethod() { … }
-}
 
-class Derived: ExtendableClass() {
-    override fun overridableMethod() { … }
-}</code></pre>
-
+                    <div class="fragment">
+                        <p class="tgap"><strong>Klassen &amp; Methoden sind <code>final</code> by Default</strong></p>
+                        <!-- <p class="decent lgap small">Frameworks sollten sich daher als Mantra</p> -->
+                        <pre style="width: 700px; margin: 0 60px"><code class="kotlin">open class ExtendableClass {
+        open fun overridableMethod() { … }
+    }
+    
+    class Derived: ExtendableClass() {
+        override fun overridableMethod() { … }
+    }</code></pre>
+                    </div>  
                 </div>
                 <div class="abs handwriting fragment"
-                     style="width: 530px;  transform: rotate(7deg); left: 760px; top: 500px; color:  red">
+                     style="width: 530px;  transform: rotate(7deg); left: 760px; top: 450px; color:  red">
                     Mutige Entscheidung!<br>
                     <span style="color: #999" class="small">… Framework-Entwickler müssen Acht geben!</span>
                 </div>
@@ -541,6 +574,16 @@ class Derived: ExtendableClass() {
 
                 <div style="margin-top: 400px; background-color: rgba(0,0,0,.5); padding: .2em" class="fragment">
                     <code>null</code> <span style="color:white">und seine Folgen</span>
+                </div>
+            </section>
+
+
+            <section class="center">
+                <div data-markdown class="">
+                    <script type="text/template">
+                        # <span class="decent">Philosophie  </span>
+                        ## Mache `NullPointerException` <br> zu einem _compile-time_ Fehler, <br>nicht _run-time Fehler_
+                    </script>
                 </div>
             </section>
 
@@ -567,7 +610,7 @@ class Derived: ExtendableClass() {
                     ```
                     </div>
 
-                    <h3 class="tgap"><em>Nullwerte sind <br>Bestandteil des Typsystems!</em></h3>
+                    <h3 class="tgap"><em>Nullwerte sind Bestandteil <br>des Typsystems!</em></h3>
 
                     <p class="decent x-small">An den Schnittstellen baut Kotlin
                         Prüfungen &amp; <code>@NotNull</code> Annotationen ein.</p>
@@ -575,8 +618,7 @@ class Derived: ExtendableClass() {
             </section>
 
 
-            <section class="center">
-                <h2>Hands on – Live</h2>
+            <section class="center" data-background-iframe="https://play.kotlinlang.org/" data-background-interactive>
             </section>
 
 
@@ -595,7 +637,7 @@ class Derived: ExtendableClass() {
                         nonNullable = nullable ?: ""
                         ```
 
-                        ###### Kotlin extension für Nullable-Typen<!-- .elementstyle="margin: 48px 0 -12px 0" -->
+                        ###### Kotlin extension für Nullable-Typen<!-- .element style="margin: 48px 0 -12px 0" -->
                         ```kotlin
                         // equals/orEmpty für String?
                         nonNullable = nullable.orEmpty()
@@ -711,6 +753,26 @@ class KotlinClass(val jclass: JavaClass) {
             </section>
 
 
+            <section class="container ">
+                <div style="margin: 0 auto; width: 76%;">
+                    <div data-markdown>
+                        ## Kotlin & Java
+                        *Nahtlose Java &lrarr; Kotlin Interoperabilität ist Top Priorität*
+                    </div>
+                    <div data-markdown class="left fragment">
+                        ##### Compilert in Java 8,9,…,18 Bytecode
+                        - Versteht Kotlin & Java Code
+                        - Inkrementelle Migration gut möglich
+                    </div>
+                    <div data-markdown class="left fragment">
+                        ##### Kein separates Kotlin-SDK
+                        * Kotlin *nutzt direkt die JDK-Klassen*
+                        * ergänzt viele, kleine _Extensions_  – ca. 1,5MB in v1.7
+                    </div>
+                </div>
+            </section>
+
+
             <section>
                 <div data-markdown class="small">
                     ### Kotlin vs. Java Types
@@ -730,63 +792,50 @@ class KotlinClass(val jclass: JavaClass) {
 
             <section>
                 <h3><code>null</code>-Werte aus Java-Code</h3>
-                <p class="small">Alle Rückgabewerte aus Java-Code als <code>T?</code> zu verstehen wäre zwar richtig, aber extrem
-                    unkomfortabel. Daher besitzt Kotlin das Konzept sog. <i>Platform Types</i> <code>T!</code>.</p>
+                <p class="small">Alle Rückgabewerte aus Java-Code als <code>T?</code> zu verstehen wäre richtig,<br/> aber <i>extrem</i>
+                    unkomfortabel. Kotlin setzt daher auf <em>Platform Types <code>T!</code></em>.</p>
 
-                <img src="img/java-nullable.png" class="plain tgap" style="width: 540px">
+                <img src="img/java-nullable.png" class="plain tgap fragment" style="width: 540px">
 
-                <p class="small" style="margin: -12px 0">&downarrow;</p>
-
-                <div data-markdown style="width: 68%; margin: 0 auto">
-                    ```kotlin
-                    System.getenv("_PWD").length   // Potentiell NPE!
-                    ```
-                </div>
-
-                <div data-markdown style="width: 68%; margin: 48px auto" class="small">
-                    Volle Sicherheit kann man wiedererlangen durch:
-                    1. Auszeichnung mit `@Nullable` in Java -> `String?`
-                    1. Elvis Operator &amp; Co.: `System.getenv("_PWD")?.length`
-                    1. Auszeichnung eines `@Nullable` Defaults für ganze Pakete
-
-                </div>
-
-                <div class="abs handwriting"
+                <div class="abs handwriting fragment"
                      style="width: 430px;  transform: rotate(-13deg);
                             left: 920px; top: 200px; color: #66c; font-size: 110%">
                     Kann nicht aus Kotlin heraus erzeugt werden!
                 </div>
-            </section>
 
-
-            <section class="container left">
-                <div style="margin: 0 auto; width: 76%;">
-                    <div data-markdown>
-                        ### Java Interoperabilität – Allgemeines
-
-                        ##### Kotlin &rightarrow; Java
-                        Klassenweises _Mischen von Java &amp; Kotlin-Code_ problemlos
-                        - Alle Java-Bibliotheken können direkt & elegant genutzt werden
-                        - Inkrementelle Migration gut möglich
-                        - Java 8 seit Kotlin 1.1, Java 9  Module seit Kotlin 1.2
-
-                        ##### Java &rightarrow; Kotlin
-                        Elegante Verwendung erfordert gelegentlich sperrigeren Kotlin-Code.
-
-
+                <div class="fragment">
+                    <p class="small" style="margin: -12px 0">&downarrow;</p>
+                    <div data-markdown style="width: 68%; margin: 0 auto">
+                        ```kotlin
+                        System.getenv("_PWD").length   // Potentiell NPE!
+                        ```
                     </div>
                 </div>
+
+                <div data-markdown style="width: 68%; margin: 48px auto" class="small fragment">
+                    Volle Sicherheit kann man wiedererlangen durch:
+                    1. Auszeichnung mit `@Nullable` in Java -> `String?`
+                    1. Elvis Operator &amp; Co.: `System.getenv("_PWD")?.length`
+                    1. Auszeichnung eines `@Nullable` Defaults für ganze Pakete
+                </div>
+
             </section>
 
+
             <section>
-                <h3>Beispiel: <code>static</code>-Feld</h3>
-                <p class="tgap"> kein direktes <code>static</code> in Kotlin, sondern <i>companion object</i></p>
-                <div data-markdown style="width: 70%; margin: 0 auto" >
+                <h5>Java &rightarrow; Kotlin: Beispiel <code>static</code>-Feld</h5>
+                <div data-markdown style="width: 70%; margin: 1.2em auto 0 auto" >
                     <script type="text/template">
                         ```java
                         public static final int VISIBLE = 0x00000000;
                         ```
+                    </script>
+                </div>
+                <div data-markdown style="width: 70%; margin: 0 auto" class="fragment" >
+                    <script type="text/template">
                         ## &downarrow;<!-- .element style="margin: -32px auto -0 auto; color: #ccc" -->
+
+                        Kotlin kennt kein `static`. Dafür: _„companion object“_:
 
                         ```kotlin
                         companion object {
@@ -795,6 +844,7 @@ class KotlinClass(val jclass: JavaClass) {
                         ```
                     </script>
                 </div>
+                <div class="tgap fragment decent small">Fazit: Für elegante Java-APIs teils sperriger Kotlin-Code erforderlich…</div>
             </section>
 
             <section>
@@ -823,12 +873,12 @@ class KotlinClass(val jclass: JavaClass) {
         -->
         <section>
 
-            <section class="center" data-verbatim>
+            <section class="center">
                 <h1>Tooling</h1>
             </section>
 
 
-            <section data-verbatim>
+            <section>
                 <h2>Tooling: Design Goals</h2>
                 <div data-markdown style="width: 64%; float: left">
                     <script type="text/template">
@@ -863,7 +913,7 @@ class KotlinClass(val jclass: JavaClass) {
                 <h1>Effizienz & Idiome</h1>
             </section>
 
-            <section data-verbatim data-transition="fade" data-background="#fff">
+            <section data-transition="fade" data-background="#fff">
                 <!-- @formatter:off -->
                 <div data-markdown style="width: 75%; margin: 0 auto">
                     #### „Wie ist denn das Wetter?“ in Java
@@ -893,7 +943,7 @@ class KotlinClass(val jclass: JavaClass) {
                 />
             </section>
 
-            <section data-verbatim  data-transition="fade" data-background="#fff">
+            <section  data-transition="fade" data-background="#fff">
                 <!-- @formatter:off -->
                 <div data-markdown style="width: 75%; margin: 0 auto">
                     #### ... in Kotlin
@@ -924,7 +974,7 @@ class KotlinClass(val jclass: JavaClass) {
                 <!-- @formatter:on -->
             </section>
 
-            <section data-verbatim  data-transition="fade" data-background="#fff">
+            <section data-transition="fade" data-background="#fff">
                 <!-- @formatter:off -->
                 <div data-markdown style="width: 75%; margin: 0 auto">
                     #### ...mit Range Check
@@ -951,7 +1001,7 @@ class KotlinClass(val jclass: JavaClass) {
                 <!-- @formatter:on -->
             </section>
 
-            <section data-verbatim  data-transition="fade" data-background="#fff">
+            <section data-transition="fade" data-background="#fff">
                 <!-- @formatter:off -->
                 <div data-markdown style="width: 75%; margin: 0 auto">
                     #### ... mit Destructuring & `if`-Expression
@@ -973,7 +1023,7 @@ class KotlinClass(val jclass: JavaClass) {
                 <!-- @formatter:on -->
             </section>
 
-            <section data-verbatim  data-transition="fade" data-background="#fff">
+            <section data-transition="fade" data-background="#fff">
                 <!-- @formatter:off -->
                 <div data-markdown style="width: 75%; margin: 0 auto">
                     #### ... mit Type Inference durch `Pair&lt;A,B>`
@@ -999,7 +1049,7 @@ class KotlinClass(val jclass: JavaClass) {
                 />
             </section>
 
-            <section data-verbatim  data-transition="none" data-background="#fff">
+            <section data-transition="none" data-background="#fff">
                 <!-- @formatter:off -->
                 <div data-markdown style="width: 80%; margin: 0 auto">
                     #### ... mit Pattern Matching über `when`
@@ -1018,7 +1068,7 @@ class KotlinClass(val jclass: JavaClass) {
                 <!-- @formatter:on -->
             </section>
 
-            <section data-verbatim  data-transition="none" data-background="#fff">
+            <section data-transition="none" data-background="#fff">
                 <!-- @formatter:off -->
                 <div data-markdown style="width: 80%; margin: 0 auto">
                     #### ... mit Standbard-Bibliotheks Extension
@@ -1033,38 +1083,37 @@ class KotlinClass(val jclass: JavaClass) {
                         }
                     }
                     ```
-
+                </div>
+                <div data-markdown style="width: 80%; margin: 0 auto" class="fragment">
                     `fun &lt;A, B> A.to(that: B): Pair&lt;A, B> = Pair(this, that)`
                 </div>
                 <!-- @formatter:on -->
             </section>
 
 
-            <section>
-                <h2>Extension methods / properties </h2>
-
-                <div>
-                    <ul style="margin: -12px auto 12px auto;">
-                        <li>… erlauben das Erweitern fremder Klassen
-                            <span class="decent">(Android, JRE)</span></li>
-                        <li><code>this</code> zeigt auf das erweitertete Objekt</li>
-                    </ul>
-                </div>
+            <section class="left">
+                <h2>Extension methods & properties </h2>
 
                 <!-- @formatter:off -->
-                <pre class="kotlin"><code>// Extension method  für ein Android Fragment
-fun Fragment.toast(message: String, duration: Int = Toast.LENGTH_SHORT) {
-  Toast.makeText(this.getActivity(), message, duration).show()
-}
+                <div>
+                    <h5>Fremde Klasse um Methoden ergänzen</h5>
+                    <pre class="kotlin"><code>fun Fragment.toast(message: String, duration: Int = Toast.LENGTH_SHORT) {
+    Toast.makeText(this.getActivity(), message, duration).show()
+}</code></pre>
+                </div>
 
-// Extension property für das Android EditText Widget
-var EditText.stringValue: String
+<div class="fragment">
+    <h5>Fremde Klasse um Properties ergänzen</h5>
+<pre class="kotlin"><code>var EditText.stringValue: String
     get() = text.toString()
     set(str) { setText(str)  }</code></pre>
+</div>
 
-<pre class="kotlin"><code>// Verwendung
-toast("Hallo Zuschauer!")
+<div class="fragment">
+    <h5>Verwendung</h5>
+<pre class="kotlin"><code>toast("Hallo Zuschauer!")
 nameField.stringValue = "Max Muster"</code></pre>
+</div>
                 <!-- @formatter:on -->
             </section>
 
@@ -1086,24 +1135,15 @@ nameField.stringValue = "Max Muster"</code></pre>
             </section>
 
 
-            <section>
+            <section class="">
                 <h2>Utilities „frei Haus“</h2>
-                <div class="small">
-                    Zahlreiche globale Funktionen und Extensions
-                    sind in der Kotlin Standardbibliothek bereits enthalten.
-                    Sie <strong>erweitern bestehende Klassen
-                        und Interfaces</strong>
-                    <br>und sind <em>komfortabel über Code-Completion</em> zugänglich.
-                </div>
                 <div class="left" style="width: 90%; margin: 0 auto;">
-                    <!-- @formatter:off -->
-                    <pre class="java"><code class="small">List&lt;String&gt; list = Arrays.asList("a","b","c");
-for (int index = 0; index < list.size(); index++) {
-    if (index % 2 == 0)
-        System.out.println(index + " -> " + list.get(index));
-}</code></pre>
                 <div class="small">
-                    Sie helfen wesentlich beim <strong>prägnanten</strong>,
+                    Zahlreiche Extensions in der Kotlin Standardbibliothek (komfortabel über <strong>Code-Completion</strong> zugänglich) <em>erweitern bestehende JDK Klassen und Interfaces</em>
+                </div>
+                    <!-- @formatter:off -->
+                <div class="small tgap left">
+                    Sie helfen zu <strong>prägnanten</strong>,
                     dennoch <strong>intuitiv lesbar</strong> Code.
                 </div>
 
@@ -1112,13 +1152,22 @@ for (index in list.indices.filter { it % 2 == 0 }) {
     println("$index -> ${list[index]}")
 }
 </code></pre>
+<div class="fragment">
+<div class="small">Anstatt in Java</div>
+                    <pre class="java"><code class="small">List&lt;String&gt; list = Arrays.asList("a","b","c");
+for (int index = 0; index < list.size(); index++) {
+    if (index % 2 == 0)
+        System.out.println(index + " -> " + list.get(index));
+}</code></pre>
+
                     <!-- @formatter:on -->
                 </div>
-                <div class="x-small  decent">
+<!--                 <div class="x-small  decent">
                     Im Beispiel: <code>listOf</code>, <code>indices</code>, <code>filter</code>.
-                    Auch Bibliotheken für Android (<a href="https://github.com/Kotlin/anko">Anko</a>)
                 </div>
-            </section>
+ -->            
+                </div>
+                </section>
 
         </section>
 
@@ -1153,7 +1202,7 @@ for (index in list.indices.filter { it % 2 == 0 }) {
                         <li><strong><em>effiziente</em></strong> &amp; <strong><em>fehlerarme</em></strong> Entwicklung
                         </li>
                         <li>konzipiert für den <strong>industriellen Einsatz</strong></li>
-                        <li>erzeugt <strong>Java 6 Bytecode</strong>
+                        <li>erzeugt <strong>Java 8 Bytecode</strong>
                             <span class="small decent subline"> – perfekt für Android</span>
                         </li>
                         <li><strong>100% Java Interoperabilität</strong>
@@ -1168,8 +1217,7 @@ for (index in list.indices.filter { it % 2 == 0 }) {
                                 –  Android Studio &amp; Gradle 3 setzen auf Kotlin
                             </span>
                         </li>
-                        <li>Geringe Runtimegröße &amp; -overhead <span class="small decent subline"> – ca. 736KB in 1.0.6
-                            </span></li>
+                        <li class="decent">Aber: Overhead stdlib & Properties-Methoden</span></li>
                     </ul>
                 </div>
             </section>
@@ -1357,7 +1405,7 @@ fun main(args: Array&lt;String&gt;) {
 }</code></pre>
                 </div>
 
-                <div class="abs" style="top: 100px; left: 954px; width: 30%">
+                <div class="abs" style="top: 80px; left: 954px; width: 30%">
                     <p style="text-align: left; line-height: .83em; font-size: .8em">
                         &nbsp;<br>
                         <span class="fragment">&leftarrow; Funktion als <em>Parameter</em><br></span>
@@ -1385,24 +1433,32 @@ fun main(args: Array&lt;String&gt;) {
                 </div>
             </section>
 
+            <section class="center" data-background-iframe="https://play.kotlinlang.org/" data-background-interactive>
+            </section>
 
-            <section data-verbatim>
+            <section>
                 <div style="width: 70%; margin: 0 auto;" >
                     <h3>Lambdas – Syntactic sugar</h3>
                     <div class="tgapxl">
                         <pre style=""><code class="kotlin">view.setOnClickListener({ e -> doSomething(e) })</code></pre>
-                        <p class="small" style="margin: -18px">&downarrow;</p>
-                        <pre style=""><code class="kotlin">view.setOnClickListener() { e -> doSomething(e) }</code></pre>
-                        <p class="small" style="margin: -18px">&downarrow;</p>
-                        <pre style=""><code class="kotlin">view.setOnClickListener { e -> doSomething(e) }</code></pre>
-                        <p class="small" style="margin: -18px">&downarrow;</p>
-                        <pre style=""><code class="kotlin">view.setOnClickListener { doSomething(it) }</code></pre>
+                        <div class="fragment">
+                            <p class="small" style="margin: -18px">&downarrow;</p>
+                            <pre style=""><code class="kotlin">view.setOnClickListener() { e -> doSomething(e) }</code></pre>
+                        </div>
+                        <div class="fragment">
+                            <p class="small" style="margin: -18px">&downarrow;</p>
+                            <pre style=""><code class="kotlin">view.setOnClickListener { e -> doSomething(e) }</code></pre>
+                        </div>
+                        <div class="fragment">
+                            <p class="small" style="margin: -18px">&downarrow;</p>
+                            <pre style=""><code class="kotlin">view.setOnClickListener { doSomething(it) }</code></pre>
+                        </div>
                     </div>
                 </div>
             </section>
 
 
-            <section data-verbatim>
+            <section>
                 <!-- <h3>Lambdas – Syntactic sugar</h3> -->
                 <!-- @formatter:off -->
                 <div data-markdown style="width: 86%; margin: 60px auto 0 auto" class="left">
@@ -1412,17 +1468,21 @@ fun main(args: Array&lt;String&gt;) {
                     println("I will not ...")
                     repeat(3) { println("  ...repeat myself") }
                     ```
-
+                    </script>
+                </div>
+                <div data-markdown style="width: 86%; margin: 60px auto 0 auto" class="left fragment">
+                    <script type="text/template">
                     How it works<!-- .element: class="decent tgap " -->
                     ```
                     public inline fun repeat(times: Int, action: (Int) -> Unit) {
+                        // inline: Wirkung wie Makro-Element. Kein Funktionsoverhead!
                         for (index in 0..times - 1) {
                             action(index)
                         }
                     }
                     ```
 
-                    `inline`: Wirkung wie Makro-Element. *Kein Funktionsoverhead!*
+                    
                     </script>
                 </div>
                 <!-- @formatter:on -->
@@ -1445,7 +1505,7 @@ fun main(args: Array&lt;String&gt;) {
                     ```
 
                     ##### *Varianten* 
-                    `apply()`, `let()` und    <!-- -->
+                    `apply()`, `let()` und  
                     `use()` als try-with–Equivalent
                 </div>
                 <!-- @formatter:on -->
@@ -1483,7 +1543,7 @@ fun main(args: Array&lt;String&gt;) {
                 </div>
                 <!-- @formatter:on -->
 
-                <div class="abs" style="top: 284px; left: 610px; width: 60%">
+                <div class="abs" style="top: 264px; left: 610px; width: 60%">
                     <p style="text-align: left; line-height: .83em; font-size: .8em">
                         &nbsp;<br>
                         &nbsp;<br>
@@ -1548,7 +1608,7 @@ fun main(args: Array&lt;String&gt;) {
             </section>
 
 
-            <section data-verbatim>
+            <section>
                 <h3>Operatoren</h3>
                 <p>Über Namenskonventionen. Feste Menge &amp; Präzedenz</p>
                 <div data-markdown class="small">
@@ -1567,8 +1627,88 @@ fun main(args: Array&lt;String&gt;) {
                 </div>
             </section>
 
+           <section data-markdown class="">
+                <textarea data-template>
+                    ## Kotlin/Native
 
-            <section>
+                    ![Kotlin Targets](img/kotlin-native.png) <!-- .element: class="plain" style="width: 1040px" -->
+
+                    LLVM-basierte Kompilierung von Kotlin-Code auf Plattformen ohne VM. <!-- .element: class="x-small decent"  -->
+                </textarea>
+            </section>
+
+           <section data-markdown class="">
+                <textarea data-template>
+                    ## Multiplatform
+
+                    *Code-Sharing* als Library für verschiedene Zielplattformen.
+
+                    ##### Erwartete, native `object`-Instanz (Singleton) in der Library
+                    ```
+                    interface Base64Encoder {
+                       fun encode(src: ByteArray): ByteArray
+                    } 
+
+                    expect object Base64Factory {
+                        fun createEncoder(): Base64Encoder
+                    }
+                    ```
+                    ##### …native Bereitstellung (hier: JVM)
+                    ```
+                    actual object Base64Factory {
+                        actual fun createEncoder(): Base64Encoder = JvmBase64Encoder
+                    }
+                    ```
+                    </textarea>
+                    
+            </section>
+
+            <section data-markdown class="left">
+                <textarea data-template>
+                    ## Kotlin Coroutines
+                    ### Coroutinen sind *leichtgewichtige* und *pausierbare* Berechnungen für die *sequentielle Programmierung asynchroner Logik*
+                    
+                    Nur die elementarsten Mittel sind Teil der Sprache.<!-- .element class="decent x-small tgapxl"--><br/>
+                    Erst die Bibliothek `kotlinx.coroutines` stellt die High-Level Funktionen für Kommunikation, und Thread-Handling. 
+
+                    Das Kotlin <!-- .element class="decent x-small"-->Framework [Ktor](https://ktor.io/) bringt z.B. eine komplett asynchrone Engine auf Basis der leichtgewichtigen Coroutinen.
+                </textarea>
+            </section>
+
+
+            <section data-markdown >
+                <textarea data-template>
+                    ### Kotlin Coroutines: Beispiel
+                    ```kotlin
+                    import kotlinx.coroutines.*
+
+                    fun main() {
+                        runBlocking {                  // Eröffnet blockierend einen CoroutineScope
+
+                            // Dieser Lambda-Block wird in der Coroutine ausgeführt
+                            launch {                   // Startet im Hintergrund eine Coroutine
+                                delay(999L)            // Suspendiert die Coroutine
+                                println("Welt!")       // Ausgabe nach Fortsetzung
+                            }
+
+                            // Starte parallel 20x suspendierbare Funktionen
+                            repeat(20) { launch { printDot() } }
+                            print("Hallo") 
+                        }
+                        println("Ende")
+                    }
+                    
+                    suspend fun printDot() {           // Nur aus CoroutineScope aufrufbar 
+                        delay(500L)
+                        print(".")
+                    }
+                    ```
+                </textarea>
+            </section>
+
+
+
+            <section data-verbatim="">
                 <h3>GUI &amp; <code>null</code> – Typische Konstellation</h3>
                 <div data-markdown class="bgap">
                     Werte für Initialisierung erst im Android-Callbacks bekannt …
@@ -1600,7 +1740,7 @@ fun main(args: Array&lt;String&gt;) {
             </section>
 
 
-            <section class="left">
+            <section data-verbatim="" class="left">
                 <h3>Lösungen: Verzögerte Initalisierung</h3>
                 <div data-markdown class="bgap">
                     ##### `lateinit` Properties (empfohlen)
@@ -1665,44 +1805,20 @@ fun main(args: Array&lt;String&gt;) {
 
             <section class="center">
                 <h1>Fazit</h1>
-                <h3 style="margin: -1.2em 0"  >&amp;<br> Ausblick</h3>
+                <!-- <h3 style="margin: -1.2em 0"  >&amp;<br> Ausblick</h3> -->
             </section>
 
-            <section data-markdown class="">
-                <textarea data-template>
-                    ## Kotlin/Native (experimentell)
-
-                    ![Kotlin Targets](img/kotlin-native.png) <!-- .element: class="plain" style="width: 1040px" -->
-
-                    LLVM-basierte Kompilierung von Kotlin-Code auf Plattformen ohne VM. <!-- .element: class="x-small decent"  -->
-                </textarea>
-            </section>
-
-            <section data-markdown class="left">
-                <textarea data-template>
-                    ## Experimentelle Features
-
-                    #### Coroutines (1.1)
-                    *Sequentielle Programmierung von asynchroner Logik.* Kann `async`/`await` von C#, `channel` und `select`
-                    von Go und `generator`/`yield` von C# bzw. Python nachbilden.
-
-                    #### Multiplatform Projects (1.2) <!-- .element: class="tgap" -->
-                    Erlaubt die Compilation &amp; *Wiederverwendung des selben Codes für verschiedene Zielplattformen*.
-
-                    `expect` definiert Platzhalter für Deklarationen, die mittels `actual` Plattform-spezifisch implementiert werden.
-                </textarea>
-            </section>
-
+ 
             <section>
                 <h2>Im Browser <!--mitmachen &amp;--> ausprobieren</h2>
                 <img data-src="img/try-kotlin.png" style="width: 100%"
                      alt="Kotlin Koans">
                 <p style="font-size: 140%; margin-top: -12px;" class="decent">
-                    &rightarrow; <a href="http://try.kotl.in/"><b>http://try.kotl.in/</b></a>
+                    &rightarrow; <a href="https://play.kotlinlang.org/koans"><b>play.kotlinlang.org/koans</b></a>
                 </p>
             </section>
 
-            <section>
+            <section data-verbatim="">
                 <h3>Lernen: Kotlin Koans</h3>
                 <img data-src="img/koans-edu-plugin.png"
                      style="width: 72%"
@@ -1716,12 +1832,12 @@ fun main(args: Array&lt;String&gt;) {
                 <div class="threecol small left" data-markdown>
                     ##### Materialien für den Einstieg
                     * [*kotlinlang.org*](https://kotlinlang.org/)
-                    * [*Kotlin Koans*](https://github.com/Kotlin/kotlin-koans)   <!--  -->
-                       auch online: [try.kotl.in](http://try.kotl.in)
-                       in IntelliJ: [Kotlin Edu Plugin](https://blog.jetbrains.com/kotlin/2016/03/kotlin-educational-plugin/)
+                    * [*Kotlin Koans*](https://kotlinlang.org/docs/koans.html) 
                     * [Ein Überblick über Java-Alternativen für den industriellen
-                    Einsatz](http://www.heise.de/developer/artikel/Ein-Ueberblick-ueber-Java-Alternativen-fuer-den-industriellen-Einsatz-2074554.html),
-                    Benjamin Schmid
+                    Einsatz](http://www.heise.de/developer/artikel/Ein-Ueberblick-ueber-Java-Alternativen-fuer-den-industriellen-Einsatz-2074554.html)
+                    
+                    **Dieses Deck**   <br/>                    
+                    ![https://bentolor.github.io/kotlin-talk/](img/qr.png)
                 </div>
 
                 <div class="threecol small left" data-markdown>
@@ -1739,22 +1855,16 @@ fun main(args: Array&lt;String&gt;) {
 
                 <div class="threecol small left" data-markdown>
                     ##### Nennenswerte Frameworks
-                    - [KAndroid](https://github.com/pawegio/KAndroid)
-                    - [Fuel](https://github.com/kittinunf/Fuel) (HTTP f. Android)
-                    - [RxKotlin](https://github.com/ReactiveX/RxKotlin) (Reactive)
-                    - [spek](https://github.com/jetbrains/spek) (Testing)
-                    - [kovenant](https://github.com/mplatvoet/kovenant)  <!-- -->
-                      (Android Promises)
-
-                    ##### Kotlin-optimierte Addons
-                    - [SparkJava](http://sparkjava.com/)
-                    - [jooby](http://jooby.org/)
+                    - [KTor](https://ktor.io/) Connected Apps
+                    - [Micronaut](https://micronaut.io/) Cloud-native
+                    - [Spring Boot](https://spring.io/guides/tutorials/spring-boot-kotlin/) Web
+                    - [SparkJava](http://sparkjava.com/) Web
+                    - [Mockk](https://github.com/mockk/mockk) Testing
+                    - [Koin](https://insert-koin.io/) DI
 
                 </div>
 
                 <div style="clear: left;"></div>
-
-                <h5 class="subline" style="margin-top: 30px; padding: 6px; background-color: rgba(120,120,240,.4);">We are hiring! <a href="https://www.exxcellent.de/karriere">exxcellent.de/karriere</a></h5>
 
                 <div class="x-small" style="padding-top: 24px; clear: left" data-markdown>
                     Bildnachweis:
@@ -1818,6 +1928,8 @@ fun main(args: Array&lt;String&gt;) {
         document.getElementsByTagName("video")[0].playbackRate = 2
     }, false );
 </script>
+
+<script src="./live.js"></script>
 
 
 </body>
