@@ -263,7 +263,7 @@
     font-size: 124%;
 }
 
-.reveal .small li, .reveal div.small,.reveal span.small, .reveal .small code, .reveal .small, .reveal .small li .small textarea {
+.reveal .small p, .reveal .small li, .reveal div.small,.reveal span.small, .reveal .small code, .reveal .small, .reveal .small li .small textarea {
     font-size: 86%;
 }
 
