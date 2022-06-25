@@ -398,7 +398,7 @@
 .profile .profile-sidebar {
     padding: 10px 0 10px 0;
     border-top: 2px solid rgba(27, 145, 255, 1);
-    background: rgba(27, 145, 255, .2);
+    background: rgba(186, 218, 248, 0.8);
 }
 
 .profile .profile-userpic {
@@ -436,7 +436,7 @@
 .profile .profile-content {
     padding: 5px;
     border: 1px solid rgba(255, 255, 255, .2);
-    background: rgba(63, 63, 63, .2);
+    background: rgba(240, 240, 240, .8);
     font-size: 0.8em;
     font-weight: 600;
     border-bottom: 2px solid rgba(27, 145, 255, 1);
