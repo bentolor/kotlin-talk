@@ -236,6 +236,31 @@ In dieser Session erleben wir live, wie es sich anfühlt der NullpointerExceptio
             <section class="">
                 <h5>Hands on: <a href="https://play.kotlinlang.org/">play.kotlinlang.org</a></h5>
                  <iframe data-src="https://play.kotlinlang.org/" width="1280" height="620"></iframe>
+                 <aside data-markdown class="notes">
+
+````
+import java.util.*
+
+fun main(args: Array<String>) {
+    val name = if (args.size > 0) args[0] else "Publikum"
+    val zuschauer = Gast(name, title = Title.wertes)
+
+    println(zuschauer)
+    println("Hallo ${zuschauer.title} ${zuschauer.name}")
+}
+
+data class Gast(val name: String, var zeit: Date = Date(), val title: Title?)
+enum class Title { Herr, Frau, wertes }
+````
+
+- Prägnanz: Kein Semikolon
+- Kein`new`,
+- `if` ist ein Ausdruck
+- Properties
+- `val` und `var`
+- Default Values
+- ggf. `getOrElse(0, {"x"})`
+                 </aside>
             </section>
 
 
@@ -357,6 +382,11 @@ enum class Title { Herr, Frau, wertes }                </code></pre>
                         </div>
                     </div>
                 </div>
+                <aside data-markdown class="notes">
+                    * Vererbung & erweiterbar
+                    * Mehr als Java Records 14, welche nur Lese-Container sind
+                    * Kann über Annotation auf Java 14 Records gestutzt werden
+                </aside>
             </section>
 
 
@@ -516,6 +546,12 @@ enum class Title { Herr, Frau, wertes }                </code></pre>
                     <p style="margin-top: 3.7em">Standard-Bibliothek
                     <p style="margin-top: 1.4em">Konventionen
                 </div>
+                <aside data-markdown class="notes">
+                    ...was gibt es sonst noch zum Thema Prägnanz & Lesbarkeit?
+
+                    Ein paar Dinge haben wir bereits gesehen. 
+                    Ein paar der Sachen werden wir  
+                </aside>
             </section>
 
         </section>
@@ -619,6 +655,39 @@ enum class Title { Herr, Frau, wertes }                </code></pre>
 
 
             <section class="center" data-background-iframe="https://play.kotlinlang.org/" data-background-interactive>
+                <aside data-markdown class="notes">
+````
+class Greeter(val s: String) {
+    fun toUp(): String = s.toUpperCase()
+    fun doHello() {
+        println("Hallo ${toUp()}!")
+    }
+
+}
+
+fun main(args: Array<String>) {
+    Greeter("Leute").doHello()
+    Greeter(null).doHello()
+}
+````
+
+1. `Greeter(null).doHello()` und `String?` 
+3. `fun toUp(): String? = s?.toUpperCase()`
+4. `fun toUp(): String = s?.toUpperCase() ?: "NULL"`
+5. Smart Cast: `return if (s != null) s.toUpperCase() else "null"`
+2. `!!`
+
+````
+    fun toUp(): String {
+        return if (s != null) {
+            s.toUpperCase()
+        } else {
+            "null"
+        }
+    }
+````
+
+                </aside>
             </section>
 
 
@@ -664,6 +733,13 @@ enum class Title { Herr, Frau, wertes }                </code></pre>
                         </script>
                     </div>
                     <!-- @formatter:on -->
+                    <aside data-markdown class="notes">
+                        * Beispiel aus Android
+                        * Oben typischer Android SDK Java Code 
+                        * `?.`
+                        * "Safe" (nullable) cast operator `as?`
+                        * Smart Casts `is EditText`
+                    </aside>
                 </div>
             </section>
 
@@ -717,6 +793,11 @@ if (child is EditText) {
                 <img src="img/java-kotlin-bidir.png" class="plain" style="width: 900px">
                 <p>Mischen von Java &amp; Kotlin-Code</p>
                 <p class="x-small decent subline">bei problemlosem, gleichzeitigen Zugriff in beide Richtungen</p></p>
+                <aside data-markdown class="notes">
+                    * Compiler kann Kotlin + Java
+                    * Bidirektionale Beziehungen sind Ok!
+                    * Ideal: Incrementelle Migration
+                </aside>
             </section>
 
             <section>
@@ -812,7 +893,9 @@ class KotlinClass(val jclass: JavaClass) {
                 </div>
                 <div style="clear: both"></div>
                 <div class="x-small tgap decent">Siehe auch: <a href="https://kotlinlang.org/docs/reference/comparison-to-java.html"> https://kotlinlang.org/docs/reference/comparison-to-java.html</a></div>
-
+                <aside data-markdown class="notes">
+                    * Invariant Arrays :  Kotlin does not allow assign Array<String> to an Array<Any>, preventing possible runtime failure.  (but you can use Array<out Any>, see Type Projections).
+                </aside>
             </section>
 
 
@@ -847,8 +930,6 @@ class KotlinClass(val jclass: JavaClass) {
                     |`Any`   | |`java.lang.Object`
                     |`Int`   | |`int`
                     |`Int?`  | |`java.lang.Integer`
-                    |`Double`| |`double`
-                    |`Double?`| |`java.lang.Double`
                     |`Array&lt;Int&gt;` | | `Integer[]`
                     |`IntArray` | | `int[]`
                 </div>
@@ -925,6 +1006,7 @@ class KotlinClass(val jclass: JavaClass) {
                     |`@JvmOverloads`             | Optionale Parameter ausmultiplizieren
                     |`@Throws`                   | Checked exceptions Signatur deklarieren
                     |`@Nullable / @NotNull`      | `T?` vs. `T`
+                    |`@JvmRecord`                | Data Class als JDK14 Records
                 </div>
             </section>
 
@@ -999,6 +1081,196 @@ class KotlinClass(val jclass: JavaClass) {
             </section>
 
 
+
+
+            <section data-transition="fade" data-background="#fff">
+                <!-- @formatter:off -->
+                <div data-markdown style="width: 75%; margin: 0 auto">
+                    #### „Wie ist denn das Wetter?“ in Java
+                    ```
+                    public class WeatherIndicator {
+                        void rateWeather(int celsius) {
+                            String status;
+                            Color color;
+                            if (celsius < 5) {
+                                status = "Saukalt!";
+                                color = Color.BLUE;
+                            } else if (celsius >= 5 && celsius <= 20) {
+                                status = "Geht so!";
+                                color = Color.ORANGE;
+                            } else {
+                                status = "Urlaub!";
+                                color = Color.RED;
+                            }
+                        }
+                    }
+                    ```
+                </div>
+                <!-- @formatter:on -->
+                <img src="img/kotlin-copypaste-convert-black.png"
+                     style="position: absolute; z-index: 1; left: 0; right: 0; margin: 0 auto; top: 200px;"
+                     class="plain fragment"
+                />
+                <aside data-markdown class="notes">
+                    1. Paste & Convert Kotlin
+                    2. `else if` -> Range check
+                    3. `val (status: String, color: Color)` mit `Pair(x,y)` einführen
+                    4. Type inference
+                    5. Replace when 
+                    6. Remove Braces from all
+                    7. Pair -> to
+                </aside>
+            </section>
+
+            <section data-transition="fade" data-background="#fff">
+                <!-- @formatter:off -->
+                <div data-markdown style="width: 75%; margin: 0 auto">
+                    #### ... in Kotlin
+                    ```
+                    class WeatherIndicator {
+                        fun rateWeather(celsius: Int) {
+                            val status: String
+                            val color: Color
+                            if (celsius < 5) {
+                                status = "Saukalt!"
+                                color = Color.BLUE
+                            } else if (celsius >= 5 && celsius <= 20) {
+                                status = "Geht so!"
+                                color = Color.ORANGE
+                            } else {
+                                status = "Urlaub!"
+                                color = Color.RED
+                            }
+                        }
+                    }
+
+                    ```
+                </div>
+                <img src="img/refactor-to-in.png"
+                     style="position: absolute; z-index: 1; left: 0; right: 0; margin: 0 auto; top: 320px;"
+                     class="plain fragment"
+                />
+                <!-- @formatter:on -->
+            </section>
+
+            <section data-transition="fade" data-background="#fff">
+                <!-- @formatter:off -->
+                <div data-markdown style="width: 75%; margin: 0 auto">
+                    #### ...mit Range Check
+                    ```
+                    class WeatherIndicator {
+                        fun rateWeather(celsius: Int) {
+                            val status: String
+                            val color: Color
+                            if (celsius < 5) {
+                                status = "Saukalt!"
+                                color = Color.BLUE
+                            } else if (celsius in 5..20) {
+                                status = "Geht so!"
+                                color = Color.ORANGE
+                            } else {
+                                status = "Urlaub!"
+                                color = Color.RED
+                            }
+                        }
+                    }
+
+                    ```
+                </div>
+                <!-- @formatter:on -->
+            </section>
+
+            <section data-transition="fade" data-background="#fff">
+                <!-- @formatter:off -->
+                <div data-markdown style="width: 75%; margin: 0 auto">
+                    #### ... mit Destructuring & `if`-Expression
+                    ```
+                    class WeatherIndicator {
+                        fun rateWeather(celsius: Int) {
+                            val (status: String, color: Color) =
+                              if (celsius < 5) {
+                                  Pair("Saukalt!", Color.BLUE)
+                              } else if (celsius in 5..20) {
+                                  Pair("Geht so!", Color.ORANGE)
+                              } else {
+                                  Pair("Urlaub!", Color.RED)
+                              }
+                        }
+                    }
+                    ```
+                </div>
+                <!-- @formatter:on -->
+            </section>
+
+            <section data-transition="fade" data-background="#fff">
+                <!-- @formatter:off -->
+                <div data-markdown style="width: 75%; margin: 0 auto">
+                    #### ... mit Type Inference durch `Pair&lt;A,B>`
+                    ```
+                    class WeatherIndicator {
+                        fun rateWeather(celsius: Int) {
+                            val (status, color) =
+                              if (celsius < 5) {
+                                  Pair("Saukalt!", Color.BLUE)
+                              } else if (celsius in 5..20) {
+                                  Pair("Geht so!", Color.ORANGE)
+                              } else {
+                                  Pair("Urlaub!", Color.RED)
+                              }
+                        }
+                    }
+                    ```
+                </div>
+                <!-- @formatter:on -->
+                <img src="img/refactor-when.png"
+                     style="position: absolute; z-index: 1; left: -330px; right: 0; margin: 0 auto; top: 210px;"
+                     class="plain fragment"
+                />
+            </section>
+
+            <section data-transition="none" data-background="#fff">
+                <!-- @formatter:off -->
+                <div data-markdown style="width: 80%; margin: 0 auto">
+                    #### ... mit Pattern Matching über `when`
+                    ```
+                    class WeatherIndicator {
+                        fun rateWeather(celsius: Int) {
+                           val (status, color) = when {
+                             celsius < 5 -> Pair("Saukalt!", Color.BLUE)
+                             celsius in 5..20 -> Pair("Geht so!", Color.ORANGE)
+                             else -> Pair("Urlaub!", Color.RED)
+                           }
+                        }
+                    }
+                    ```
+                </div>
+                <!-- @formatter:on -->
+            </section>
+
+            <section data-transition="none" data-background="#fff">
+                <!-- @formatter:off -->
+                <div data-markdown style="width: 80%; margin: 0 auto">
+                    #### ... mit Standbard-Bibliotheks Extension
+                    ```kotlin
+                    class WeatherIndicatorKt {
+                        fun rateWeather(celsius: Int) {
+                           val (status, color) = when {
+                             celsius < 5 -> "Saukalt!" to Color.BLUE
+                             celsius in 5..20 ->  "Geht so!" to Color.ORANGE
+                             else -> "Urlaub!" to Color.RED
+                           }
+                        }
+                    }
+                    ```
+                </div>
+                <div data-markdown style="width: 80%; margin: 0 auto" class="fragment">
+                    `fun &lt;A, B> A.to(that: B): Pair&lt;A, B> = Pair(this, that)`
+                </div>
+                <!-- @formatter:on -->
+            </section>
+
+
+
             <section class="">
                 <div data-markdown >
                     <script type="text/template">
@@ -1051,6 +1323,10 @@ class KotlinClass(val jclass: JavaClass) {
 nameField.stringValue = "Max Muster"</code></pre>
 </div>
                 <!-- @formatter:on -->
+                <aside data-markdown class="notes">
+                    * `this` zeigt auf erweiterte Objektinstanz
+                    * Properties: keine neuen Felder;
+                </aside>
             </section>
 
 
@@ -1142,184 +1418,6 @@ for (int index = 0; index < list.size(); index++) {
                 </div>
             </section>
 
-
-
-            <section data-verbatim data-transition="fade" data-background="#fff">
-                <!-- @formatter:off -->
-                <div data-markdown style="width: 75%; margin: 0 auto">
-                    #### „Wie ist denn das Wetter?“ in Java
-                    ```
-                    public class WeatherIndicator {
-                        void rateWeather(int celsius) {
-                            String status;
-                            Color color;
-                            if (celsius < 5) {
-                                status = "Saukalt!";
-                                color = Color.BLUE;
-                            } else if (celsius >= 5 && celsius <= 20) {
-                                status = "Geht so!";
-                                color = Color.ORANGE;
-                            } else {
-                                status = "Urlaub!";
-                                color = Color.RED;
-                            }
-                        }
-                    }
-                    ```
-                </div>
-                <!-- @formatter:on -->
-                <img src="img/kotlin-copypaste-convert-black.png"
-                     style="position: absolute; z-index: 1; left: 0; right: 0; margin: 0 auto; top: 200px;"
-                     class="plain fragment"
-                />
-            </section>
-
-            <section data-verbatim  data-transition="fade" data-background="#fff">
-                <!-- @formatter:off -->
-                <div data-markdown style="width: 75%; margin: 0 auto">
-                    #### ... in Kotlin
-                    ```
-                    class WeatherIndicator {
-                        fun rateWeather(celsius: Int) {
-                            val status: String
-                            val color: Color
-                            if (celsius < 5) {
-                                status = "Saukalt!"
-                                color = Color.BLUE
-                            } else if (celsius >= 5 && celsius <= 20) {
-                                status = "Geht so!"
-                                color = Color.ORANGE
-                            } else {
-                                status = "Urlaub!"
-                                color = Color.RED
-                            }
-                        }
-                    }
-
-                    ```
-                </div>
-                <img src="img/refactor-to-in.png"
-                     style="position: absolute; z-index: 1; left: 0; right: 0; margin: 0 auto; top: 320px;"
-                     class="plain fragment"
-                />
-                <!-- @formatter:on -->
-            </section>
-
-            <section data-verbatim data-transition="fade" data-background="#fff">
-                <!-- @formatter:off -->
-                <div data-markdown style="width: 75%; margin: 0 auto">
-                    #### ...mit Range Check
-                    ```
-                    class WeatherIndicator {
-                        fun rateWeather(celsius: Int) {
-                            val status: String
-                            val color: Color
-                            if (celsius < 5) {
-                                status = "Saukalt!"
-                                color = Color.BLUE
-                            } else if (celsius in 5..20) {
-                                status = "Geht so!"
-                                color = Color.ORANGE
-                            } else {
-                                status = "Urlaub!"
-                                color = Color.RED
-                            }
-                        }
-                    }
-
-                    ```
-                </div>
-                <!-- @formatter:on -->
-            </section>
-
-            <section data-verbatim data-transition="fade" data-background="#fff">
-                <!-- @formatter:off -->
-                <div data-markdown style="width: 75%; margin: 0 auto">
-                    #### ... mit Destructuring & `if`-Expression
-                    ```
-                    class WeatherIndicator {
-                        fun rateWeather(celsius: Int) {
-                            val (status: String, color: Color) =
-                              if (celsius < 5) {
-                                  Pair("Saukalt!", Color.BLUE)
-                              } else if (celsius in 5..20) {
-                                  Pair("Geht so!", Color.ORANGE)
-                              } else {
-                                  Pair("Urlaub!", Color.RED)
-                              }
-                        }
-                    }
-                    ```
-                </div>
-                <!-- @formatter:on -->
-            </section>
-
-            <section data-verbatim data-transition="fade" data-background="#fff">
-                <!-- @formatter:off -->
-                <div data-markdown style="width: 75%; margin: 0 auto">
-                    #### ... mit Type Inference durch `Pair&lt;A,B>`
-                    ```
-                    class WeatherIndicator {
-                        fun rateWeather(celsius: Int) {
-                            val (status, color) =
-                              if (celsius < 5) {
-                                  Pair("Saukalt!", Color.BLUE)
-                              } else if (celsius in 5..20) {
-                                  Pair("Geht so!", Color.ORANGE)
-                              } else {
-                                  Pair("Urlaub!", Color.RED)
-                              }
-                        }
-                    }
-                    ```
-                </div>
-                <!-- @formatter:on -->
-                <img src="img/refactor-when.png"
-                     style="position: absolute; z-index: 1; left: -330px; right: 0; margin: 0 auto; top: 210px;"
-                     class="plain fragment"
-                />
-            </section>
-
-            <section data-verbatim data-transition="none" data-background="#fff">
-                <!-- @formatter:off -->
-                <div data-markdown style="width: 80%; margin: 0 auto">
-                    #### ... mit Pattern Matching über `when`
-                    ```
-                    class WeatherIndicator {
-                        fun rateWeather(celsius: Int) {
-                           val (status, color) = when {
-                             celsius < 5 -> Pair("Saukalt!", Color.BLUE)
-                             celsius in 5..20 -> Pair("Geht so!", Color.ORANGE)
-                             else -> Pair("Urlaub!", Color.RED)
-                           }
-                        }
-                    }
-                    ```
-                </div>
-                <!-- @formatter:on -->
-            </section>
-
-            <section data-verbatim data-transition="none" data-background="#fff">
-                <!-- @formatter:off -->
-                <div data-markdown style="width: 80%; margin: 0 auto">
-                    #### ... mit Standbard-Bibliotheks Extension
-                    ```kotlin
-                    class WeatherIndicatorKt {
-                        fun rateWeather(celsius: Int) {
-                           val (status, color) = when {
-                             celsius < 5 -> "Saukalt!" to Color.BLUE
-                             celsius in 5..20 ->  "Geht so!" to Color.ORANGE
-                             else -> "Urlaub!" to Color.RED
-                           }
-                        }
-                    }
-                    ```
-                </div>
-                <div data-markdown style="width: 80%; margin: 0 auto" class="fragment">
-                    `fun &lt;A, B> A.to(that: B): Pair&lt;A, B> = Pair(this, that)`
-                </div>
-                <!-- @formatter:on -->
-            </section>
 
         </section>
 
@@ -1963,8 +2061,9 @@ fun main(args: Array&lt;String&gt;) {
  
             <section>
                 <h2>Im Browser <!--mitmachen &amp;--> ausprobieren</h2>
-                <img data-src="img/try-kotlin.png" style="width: 100%"
-                     alt="Kotlin Koans">
+                <!-- <img data-src="img/try-kotlin.png" style="width: 100%" alt="Kotlin Koans">-->
+                <iframe data-src="https://play.kotlinlang.org/koans" width="1280" height="540"></iframe>
+
                 <p style="font-size: 140%; margin-top: -12px;" class="decent">
                     &rightarrow; <a href="https://play.kotlinlang.org/koans"><b>play.kotlinlang.org/koans</b></a>
                 </p>
